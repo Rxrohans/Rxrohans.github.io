@@ -1,55 +1,148 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rohan Singh | Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <header class="header">
-    <div class="header-left">
-      <h1>Rohan Singh</h1>
-      <p>Email: <a href="mailto:rohans.dmvt@gmail.com">rohans.dmvt@gmail.com</a></p>
-      <div class="social-links">
-        <a href="https://github.com/rxrohans" target="_blank">GitHub</a>
-        <a href="https://www.linkedin.com/in/rohan-singh-688a7a1b8" target="_blank">LinkedIn</a>
-      </div>
-      <p class="headline">Clinical Engineering | Pharmacist | Innovator in Digital Health</p>
-    </div>
-    <div class="header-right">
-      <img src="assets/rohans.jpg" alt="Rohan Singh" class="profile-pic">
-    </div>
-  </header>
+import React from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import Link from "next/link";
 
-  <main>
-    <section class="about">
-      <h2>About Me</h2>
-      <p>I am an M.Tech Clinical Engineering candidate with a background in Pharmacy and a strong interest in healthcare innovation and technology. I’ve worked on a variety of interdisciplinary projects including digital health tracking, AR development, and 4D printing, aiming to solve real-world healthcare challenges.</p>
-    </section>
+export default function HomePage() {
+  return (
+    <main className="p-6 max-w-6xl mx-auto">
+      {/* Header Section */}
+      <section className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
+        <div>
+          <h1 className="text-4xl font-bold">Rohan Singh</h1>
+          <p className="text-base mt-1 text-gray-600">rohans.dmvt@gmail.com</p>
+          <div className="flex space-x-4 mt-2">
+            <a href="https://www.linkedin.com/in/rohansinghindia/" target="_blank" className="text-blue-600 hover:underline">LinkedIn</a>
+            <a href="https://github.com/rohansingh2107" target="_blank" className="text-blue-600 hover:underline">GitHub</a>
+            <a href="https://surl.li/flcelj" target="_blank" className="text-blue-600 hover:underline">Portfolio</a>
+          </div>
+          <p className="mt-4 text-xl font-semibold">Clinical Engineering | HealthTech | Biomedical Innovations</p>
+        </div>
+        <Avatar className="w-32 h-32 mt-4 md:mt-0">
+          <AvatarImage src="/images/rohan.jpg" alt="Rohan Singh" />
+        </Avatar>
+      </section>
 
-    <section class="projects">
-      <h2>Projects</h2>
+      {/* About Me */}
+      <section className="mb-10">
+        <h2 className="text-2xl font-semibold mb-2">About Me</h2>
+        <p className="text-gray-700 leading-relaxed">
+          I am a passionate Clinical Engineering MTech student with hands-on experience in Medical Device Design, Hydrogel Fabrication,
+          App Development, and Regulatory Documentation. I love building solutions that impact healthcare outcomes and
+          enjoy working at the intersection of research, technology, and human-centered design.
+        </p>
+      </section>
 
-      <div class="project">
-        <h3><a href="lbp_app.html">Low Back Pain Tracking App</a></h3>
-        <p>A digital diary and analysis tool to track pain levels and correlate with daily factors. Click to learn more.</p>
-      </div>
+      {/* Academic Projects */}
+      <section className="mb-10">
+        <h2 className="text-2xl font-semibold mb-4">Academic Projects</h2>
 
-      <div class="project">
-        <h3><a href="4d-printing.html">4D Printing of Thin Films</a></h3>
-        <p>Exploring smart materials with PNIPAM and PEG-DA hydrogels for biomedical innovation.</p>
-      </div>
+        <Card className="mb-4">
+          <CardContent className="p-4">
+            <h3 className="text-xl font-bold mb-2">
+              <Link href="/projects/vapour-responsive-films">MTech Project at IIT Madras – "Vapour Responsive Thin Films"</Link>
+            </h3>
+            <p className="text-gray-700">Smart thin films for soft robotics. Explored film fabrication, solvent interactions, and dynamic responses for robotic applications.</p>
+            <Link href="/projects/vapour-responsive-films">
+              <Button className="mt-2">View Project</Button>
+            </Link>
+          </CardContent>
+        </Card>
 
-      <div class="project">
-        <h3><a href="ar-distance-app.html">AR Distance Measuring App</a></h3>
-        <p>Developed with Unity, EchoAR, and ARCore SDK to support clinical applications. Learn more.</p>
-      </div>
-    </section>
-  </main>
+        <Card className="mb-4">
+          <CardContent className="p-4">
+            <h3 className="text-xl font-bold mb-2">
+              <Link href="/projects/sco-design">Stance Control Orthosis Design</Link>
+            </h3>
+            <p className="text-gray-700">Designed a SCO using dial-and-knob and DC motor mechanisms. Performed component selection, gait sensor integration, and Pugh matrix comparison.</p>
+            <Link href="/projects/sco-design">
+              <Button className="mt-2">View Project</Button>
+            </Link>
+          </CardContent>
+        </Card>
+      </section>
 
-  <footer>
-    <p>&copy; 2025 Rohan Singh | All rights reserved.</p>
-  </footer>
-</body>
-</html>
+      {/* Lab Internships */}
+      <section className="mb-10">
+        <h2 className="text-2xl font-semibold mb-4">Lab Internships | July – Sep 2024 | SCTIMST</h2>
+
+        <Card className="mb-4">
+          <CardContent className="p-4">
+            <h3 className="text-xl font-bold mb-1">Risk Assessment of Glucometer</h3>
+            <p className="text-sm italic mb-1">Guide: Ms. Amrutha C., Division of Regulatory Affairs</p>
+            <p className="text-gray-700">Identified and documented hazards; evaluated risks in compliance with ISO 14971 standard.</p>
+            <Link href="/projects/glucometer-risk">
+              <Button className="mt-2">View Project</Button>
+            </Link>
+          </CardContent>
+        </Card>
+
+        <Card className="mb-4">
+          <CardContent className="p-4">
+            <h3 className="text-xl font-bold mb-1">Wound Healing Studies</h3>
+            <p className="text-sm italic mb-1">Guide: Dr. Rekha M.R., Division of Biosurface Technology</p>
+            <p className="text-gray-700">Scratch wound assay using L929 cell line to assess the healing impact of Ascorbic Acid.</p>
+            <Link href="/projects/wound-healing">
+              <Button className="mt-2">View Project</Button>
+            </Link>
+          </CardContent>
+        </Card>
+
+        <Card className="mb-4">
+          <CardContent className="p-4">
+            <h3 className="text-xl font-bold mb-1">Polymeric Nanoplexes for Gene/Drug Delivery</h3>
+            <p className="text-gray-700">Formulated PEI-histidine nanoplexes, conducted conjugation, characterization, sizing, and cytotoxicity analysis.</p>
+            <Link href="/projects/nanoplex-delivery">
+              <Button className="mt-2">View Project</Button>
+            </Link>
+          </CardContent>
+        </Card>
+      </section>
+
+      {/* Clinical Project */}
+      <section className="mb-10">
+        <h2 className="text-2xl font-semibold mb-4">Clinical Project | April – June 2024 | CMC Vellore</h2>
+
+        <Card>
+          <CardContent className="p-4">
+            <h3 className="text-xl font-bold mb-1">Low Back Pain (LBP) Tracking App</h3>
+            <p className="text-sm italic mb-1">Guides: Dr. Sivakumar Balasubramanian, Dr. Lenny Vasantham</p>
+            <p className="text-gray-700">Developed and deployed a Kotlin-based survey app for patient symptom tracking to support clinical assessments.</p>
+            <p className="text-gray-700">Tools used: Android Studio, Google Apps Script</p>
+            <Link href="/projects/lbp-app">
+              <Button className="mt-2">View Project</Button>
+            </Link>
+          </CardContent>
+        </Card>
+      </section>
+
+      {/* Course Projects */}
+      <section>
+        <h2 className="text-2xl font-semibold mb-4">Course Projects</h2>
+
+        <Card className="mb-4">
+          <CardContent className="p-4">
+            <h3 className="text-xl font-bold mb-1">AR App for Distance Measurement</h3>
+            <p className="text-sm italic mb-1">Course: Virtual Reality Engineering | Guide: Prof. M. Manivannan</p>
+            <p className="text-gray-700">Mobile app for distance measurement using Unity & C# with 99% accuracy.</p>
+            <Link href="/projects/ar-distance">
+              <Button className="mt-2">View Project</Button>
+            </Link>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardContent className="p-4">
+            <h3 className="text-xl font-bold mb-1">Glucometer Predicate Device Research</h3>
+            <p className="text-sm italic mb-1">Course: Medical Device Regulations</p>
+            <p className="text-gray-700">Compared Accu-Chek, OneTouch, and Freestyle Libre systems for intended use, working principle, and documentation strategy.</p>
+            <Link href="/projects/glucometer-research">
+              <Button className="mt-2">View Project</Button>
+            </Link>
+          </CardContent>
+        </Card>
+      </section>
+    </main>
+  );
+}
