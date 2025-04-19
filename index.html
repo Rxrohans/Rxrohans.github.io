@@ -6,7 +6,6 @@
   <title>Rohan Singh | Clinical Engineering Portfolio</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    /* Basic styles for our homepage */
     body {
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
@@ -17,107 +16,133 @@
     header {
       background: #0c2d48;
       color: white;
-      padding: 20px;
+      padding: 30px 20px;
       text-align: center;
     }
+    .profile-header h1 {
+      font-size: 2.5rem;
+      margin: 0;
+    }
+    .profile-header p {
+      margin: 8px 0;
+      font-size: 1.1rem;
+    }
     section {
-      padding: 30px;
-      max-width: 900px;
+      padding: 40px 30px;
+      max-width: 960px;
       margin: auto;
     }
-    h1, h2 {
+    h2 {
       color: #0c2d48;
+      margin-top: 40px;
+      font-size: 1.8rem;
+    }
+    .project {
+      margin-bottom: 30px;
     }
     .project-link {
       display: inline-block;
-      margin: 10px 0;
-      padding: 10px 15px;
+      margin-top: 10px;
+      padding: 10px 18px;
       background: #0c2d48;
       color: white;
       text-decoration: none;
       border-radius: 5px;
+      font-weight: bold;
     }
     ul {
       list-style-type: disc;
-      margin-left: 20px;
+      padding-left: 20px;
+      margin-bottom: 20px;
+    }
+    a {
+      color: #0c2d48;
     }
   </style>
 </head>
 <body>
 
-<header>
+<header class="profile-header">
   <h1>Rohan Singh</h1>
-  <p>Clinical Engineering | Pharmacist | Digital Health Innovator</p>
+  <p>Clinical Engineering | Pharmacist | Biomedical Innovator</p>
 </header>
 
 <section>
-  <h2>About Me</h2>
-  <p>
-    I am pursuing an M.Tech in Clinical Engineering with a background in Pharmacy. My work combines digital health, medical devices, and innovative biomaterials. I focus on creating practical, tech-enabled solutions to improve patient outcomes and optimize clinical workflows.
-  </p>
+  <h2>👋 About Me</h2>
+  <p>I’m an M.Tech Clinical Engineering student with a Bachelor’s in Pharmacy and a deep interest in digital health, bioinstrumentation, and medical device innovation. My portfolio features projects that span app development, smart biomaterials, and healthcare analytics.</p>
 
-  <h2>Research Projects</h2>
-  <h3>🧪 Vapour Responsive programmable Thin Films</h3>
-  <p>
-    Research on vapour responsive thin films using smart hydrogels for soft robotics and biomedical applications.
-  </p>
-  <a class="project-link" href="Assets/MTech.html">View Project</a>
-  
-  <h3> Lab Internships | July – Sep 2024 | SCTIMST </h3>
-  <p> 
-    Risk Assessment of Glucometer | Guide – Ms. Amrutha C. , Division of Regulatory Affairs Identified, Documented Hazards Associated and Evaluated the Risks Associated in compliance with ISO 14971 standard
-  </p>
-  <p> 
-    Wound Healing Studies | Guide – Dr. Rekha M.R. , Division of Biosurface Technology Performed Scratch Wound Assay with L929 Cell line to evaluate the wound Healing capability of Ascorbic Acid 
-  </p>
-  <p>
-    Polymeric Nanoplexes formation for intracellular gene/drug Delivery Formulated PEI-histidine nanoplex with conjugation reaction; performed characterization; size determination and cytotoxicity assay 
-  </p>
-  <a class="project-link" href="sctimst_internships.html">View Project</a>
-  <h3>Technical Projects</h3>
-  <h3>📱 Low Back Pain Tracking App</h3>
-  <p>
-    An Android-based application to track pain levels and related factors (sleep, medication, physical activity) in real-world clinical settings.
-  </p>
-  <a class="project-link" href="lbp_app.html">View Project</a>
-  
-  <h3>🧠 AR Distance Measuring App</h3>
-  <p>
-    A mobile app developed with Unity, EchoAR, and ARCore SDK for real-time clinical distance measurements.
-  </p>
-  <a class="project-link" href="ar-distance-app.html">View Project</a>
+  <h2>🧪 Research Projects</h2>
+  <div class="project">
+    <h3>Vapour Responsive Programmable Thin Films</h3>
+    <p>Responsive hydrogel-based films for soft robotics and humidity-triggered switching, developed using Chitosan and BaTiO3 nanofillers.</p>
+    <a class="project-link" href="Assets/MTech.html">View Project</a>
+  </div>
 
-  <h3> Projects</h3>
-  <h2> Engineering Problems in Hospitals Project | Aug – Dec 2023 | SCTIMST</h2>
-  <p>
-     Led a team of 4, identified & Screened 30+ Unmet clinical Problems with observations, Proposed a documented novel Technical Solution for ECG measurement
-  </p>
-  <a class="project-link" href="eph.html">View Project</a>
-  <h2>Skills</h2>
-  
+  <h2>🔬 Lab Internships (SCTIMST, Jul–Sep 2024)</h2>
+  <div class="project">
+    <ul>
+      <li><strong>Glucometer Risk Assessment:</strong> ISO 14971 compliant risk evaluation for commercial glucose monitoring devices.</li>
+      <li><strong>Wound Healing Study:</strong> Scratch assay with L929 cell lines to test efficacy of ascorbic acid in tissue regeneration.</li>
+      <li><strong>Gene Delivery via Nanoplexes:</strong> PEI-Histidine polymeric nanoplex formulation and in vitro testing for cytotoxicity and particle sizing.</li>
+    </ul>
+    <a class="project-link" href="sctimst_internships.html">View Project</a>
+  </div>
+
+  <h2>📱 Technical Projects</h2>
+
+  <div class="project">
+    <h3>Low Back Pain Tracking App</h3>
+    <p>Android app deployed for clinical data collection in CMC Vellore; captures symptom history, sleep, activity, and medication adherence.</p>
+    <a class="project-link" href="lbp_app.html">View Project</a>
+  </div>
+
+  <div class="project">
+    <h3>AR Distance Measuring App</h3>
+    <p>Unity and ARCore-based app to accurately measure object distances in real-time for assistive healthcare scenarios.</p>
+    <a class="project-link" href="ar-distance-app.html">View Project</a>
+  </div>
+
+  <div class="project">
+    <h3>Clinical Device Lifecycle Dashboard</h3>
+    <p>Power BI dashboard simulating device health, maintenance status, and ISO 14971 risk profiles using mock datasets.</p>
+    <a class="project-link" href="healthcare_analytics_project.html">View Project</a>
+  </div>
+
+  <div class="project">
+    <h3>DSO Graph WebApp</h3>
+    <p>Streamlit app that parses waveform data from DSOs and plots real-time voltage-time graphs for signal analysis.</p>
+    <a class="project-link" href="dso_graph_webapp.html">View Project</a>
+  </div>
+
+  <h2>📓 Engineering Problems in Hospitals (EPH)</h2>
+  <div class="project">
+    <p>Identified and screened 30+ unmet clinical needs at SCTIMST, culminating in a technical solution proposal for portable ECG measurement.</p>
+    <a class="project-link" href="eph.html">View Project</a>
+  </div>
+
+  <h2>🧰 Skills</h2>
   <ul>
-    Software/Tools
-    <li>Statistics – SQL (MySQL), Microsoft Excel (basics) </li>
-    <li>Data Visualization – Tableau, Power BI, MATLAB</li>
-    <li>Development – Android Studio </li>
-    <li>3D Modelling – Fusion 360, Creo Parametric</li>
-    <li>Language - Python and Kotlin (Basics)</li>
-  </ul> 
-
-  <h2>Certifications</h2>
-  <ul>
-    <li>BCG Introduction to Strategy Consulting Job Simulation on Forage - Jan 2025</li>
-    <li>Pfizer UK Molecule to Market Job Simulation on Forage - February 2025</li>
-    <li>Python for Data Science and Development (Coursera)</li>
-    <li>Tableau Fundamentals (DataCamp)</li>
-    <li>MATLAB Onramp (MathWorks)</li>
+    <li><strong>Statistics:</strong> SQL (MySQL), Microsoft Excel (Basics)</li>
+    <li><strong>Data Visualization:</strong> Power BI, Tableau, MATLAB</li>
+    <li><strong>Development:</strong> Android Studio, Streamlit</li>
+    <li><strong>3D Modeling:</strong> Fusion 360, Creo Parametric</li>
+    <li><strong>Programming:</strong> Python, Kotlin (Basics)</li>
   </ul>
-  
-  <h2>Contact</h2>
+
+  <h2>📜 Certifications</h2>
+  <ul>
+    <li>BCG Strategy Consulting Simulation (Forage) – Jan 2025</li>
+    <li>Pfizer UK Molecule to Market Simulation (Forage) – Feb 2025</li>
+    <li>Python for Data Science – Coursera</li>
+    <li>Tableau Fundamentals – DataCamp</li>
+    <li>MATLAB Onramp – MathWorks</li>
+  </ul>
+
+  <h2>📬 Contact</h2>
   <p>
-    Email: <a href="mailto:rohans.dmvt@gmail.com">rohans.dmvt@gmail.com</a><br />
-    GitHub: <a href="https://github.com/rxrohans" target="_blank">rxrohans</a><br />
-    LinkedIn: <a href="https://www.linkedin.com/in/rohan-singh-688a7a1b8" target="_blank">rohan-singh-688a7a1b8</a>
+    📧 Email: <a href="mailto:rohans.dmvt@gmail.com">rohans.dmvt@gmail.com</a><br />
+    💻 GitHub: <a href="https://github.com/rxrohans" target="_blank">github.com/rxrohans</a><br />
+    🌐 LinkedIn: <a href="https://www.linkedin.com/in/rohan-singh-688a7a1b8" target="_blank">rohan-singh</a>
   </p>
 </section>
 
