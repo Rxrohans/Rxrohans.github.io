@@ -20,7 +20,7 @@
     /* Sidebar */
     .sidebar {
       width: 240px;
-      background: #0c2d48;
+      background: linear-gradient(180deg, #004e92, #000428); /* instead of flat blue */
       color: white;
       height: 100vh;
       position: fixed;
@@ -29,7 +29,9 @@
       padding: 20px;
       display: flex;
       flex-direction: column;
-      transition: width 0.3s ease;
+      transform: translateX(0);
+      transition: transform 0.3s ease; /* for slide in/out */
+      z-index: 1000;
     }
     .sidebar h1 {
       font-size: 1.4rem;
@@ -75,6 +77,37 @@
     nav a.active {
       background: #145d8a;
       font-weight: bold;
+    }
+     /* 🔥 ADD hamburger */
+    .hamburger {
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      background: #004e92;
+      color: white;
+      border: none;
+      padding: 10px 12px;
+      font-size: 1.2rem;
+      border-radius: 6px;
+      cursor: pointer;
+      display: none; /* hidden on desktop */
+      z-index: 1100;
+    }
+
+    /* 🔥 Responsive behavior */
+    @media (max-width: 768px) {
+      .sidebar {
+        transform: translateX(-100%); /* hidden initially */
+      }
+      .sidebar.active {
+        transform: translateX(0); /* slide in */
+      }
+      .hamburger {
+        display: block;
+      }
+      .main-content {
+        margin-left: 0 !important; /* remove empty space */
+      }
     }
     /* Main content */
     .main-content {
@@ -133,7 +166,10 @@
   </style>
 </head>
 <body>
+<!-- 🔥 ADD hamburger -->
+<button class="hamburger"><i class="fas fa-bars"></i></button>
 
+<!-- Sidebar -->
 <!-- Sidebar -->
 <div class="sidebar">
   <h1>Rohan Singh</h1>
@@ -287,11 +323,13 @@
   </footer>
 </div>
 
-<!-- Scroll Spy JS -->
 <script>
   const sections = document.querySelectorAll("section");
   const navLinks = document.querySelectorAll("nav a");
+  const hamburger = document.querySelector(".hamburger");
+  const sidebar = document.querySelector(".sidebar");
 
+  // Scroll spy
   window.addEventListener("scroll", () => {
     let current = "";
     sections.forEach(section => {
@@ -307,7 +345,11 @@
       }
     });
   });
-</script>
 
+  // 🔥 Toggle sidebar on mobile
+  hamburger.addEventListener("click", () => {
+    sidebar.classList.toggle("active");
+  });
+</script>
 </body>
 </html>
