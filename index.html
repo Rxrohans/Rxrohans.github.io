@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Rohan Singh | Portfolio</title>
-  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     body {
@@ -15,12 +14,18 @@
       color: #333;
       line-height: 1.6;
       scroll-behavior: smooth;
-      display: flex;
+      /* display: flex;  <-- THIS WAS THE MAIN PROBLEM. REMOVED. */
     }
+    
+    /* NEW: Prevent scrolling when sidebar is open on mobile */
+    body.sidebar-open {
+        overflow: hidden;
+    }
+
     /* Sidebar */
     .sidebar {
       width: 240px;
-      background: linear-gradient(180deg, #004e92, #000428); /* instead of flat blue */
+      background: linear-gradient(180deg, #004e92, #000428);
       color: white;
       height: 100vh;
       position: fixed;
@@ -30,7 +35,7 @@
       display: flex;
       flex-direction: column;
       transform: translateX(0);
-      transition: transform 0.3s ease; /* for slide in/out */
+      transition: transform 0.3s ease;
       z-index: 1000;
     }
     .sidebar h1 {
@@ -78,7 +83,6 @@
       background: #145d8a;
       font-weight: bold;
     }
-     /* 🔥 ADD hamburger */
     .hamburger {
       position: fixed;
       top: 15px;
@@ -94,7 +98,25 @@
       z-index: 1100;
     }
 
-    /* 🔥 Responsive behavior */
+    /* NEW: Overlay for mobile menu */
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* Responsive behavior */
     @media (max-width: 768px) {
       .sidebar {
         transform: translateX(-100%); /* hidden initially */
@@ -108,11 +130,16 @@
       .main-content {
         margin-left: 0 !important; /* remove empty space */
       }
+      body.sidebar-open .main-content {
+        /* Optional: prevent interaction with main content */
+        pointer-events: none;
+      }
     }
+
     /* Main content */
     .main-content {
-      margin-left: 260px;
-      padding: 20px;
+      margin-left: 240px; /* Aligned with sidebar width */
+      padding: 20px 40px; /* Added more horizontal padding */
       max-width: 960px;
       transition: margin-left 0.3s ease;
     }
@@ -123,7 +150,7 @@
       border-bottom: 2px solid #0c2d48;
       padding-bottom: 6px;
     }
-    .card {
+    .card, .project-card {
       background: white;
       padding: 20px;
       border-radius: 10px;
@@ -131,16 +158,20 @@
       margin-bottom: 20px;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
-    .card:hover {
+    .card:hover, .project-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 8px 18px rgba(0,0,0,0.15);
     }
-    .project h3 {
+    .project-header {
       margin: 0;
       display: flex;
       justify-content: space-between;
       align-items: center;
       font-size: 1.1rem;
+      margin-bottom: 10px; /* NEW: Added margin for spacing */
+    }
+    .project-header h4 {
+        margin: 0;
     }
     .project-btn {
       background: linear-gradient(90deg, #0c2d48, #145d8a);
@@ -150,11 +181,20 @@
       text-decoration: none;
       border-radius: 20px;
       transition: all 0.3s ease;
+      white-space: nowrap; /* NEW: Prevents button text from wrapping */
     }
     .project-btn:hover {
       background: linear-gradient(90deg, #145d8a, #0c2d48);
       transform: scale(1.05);
     }
+
+    /* NEW: Added basic grid for projects */
+    .project-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+    }
+
     footer {
       background: #0c2d48;
       color: white;
@@ -166,11 +206,11 @@
   </style>
 </head>
 <body>
-<!-- 🔥 ADD hamburger -->
+
 <button class="hamburger"><i class="fas fa-bars"></i></button>
 
-<!-- Sidebar -->
-<!-- Sidebar -->
+<div class="overlay"></div>
+
 <div class="sidebar">
   <h1>Rohan Singh</h1>
   <p>Clinical Engineering | AI | MedTech Innovation</p>
@@ -190,19 +230,15 @@
   </nav>
 </div>
 
-<!-- Main Content -->
 <div class="main-content">
   <section id="about">
     <h2>👋 About Me</h2>
-    <p>I’m a recent graduate of the M.Tech in Clinical Engineering (IIT Madras in collaboration with CMC Vellore and SCTIMST) with a background in Pharmacy. 
-       Adaptable and versatile, I thrive in cross-functional roles wearing multiple hats and leveraging my interdisciplinary background.</p>
+    <p>I’m a recent graduate of the M.Tech in Clinical Engineering (IIT Madras in collaboration with CMC Vellore and SCTIMST) with a background in Pharmacy. Adaptable and versatile, I thrive in cross-functional roles wearing multiple hats and leveraging my interdisciplinary background.</p>
   </section>
 
   <section id="clinical">
     <h2>🔬 What is Clinical Engineering?</h2>
-    <p>Clinical Engineering is a multidisciplinary field that bridges medicine, engineering, and healthcare management. 
-       It focuses on designing, managing, and improving medical devices, healthcare technologies, and hospital systems to 
-       enhance patient care and ensure safety, efficiency, and innovation in clinical practice.</p>
+    <p>Clinical Engineering is a multidisciplinary field that bridges medicine, engineering, and healthcare management. It focuses on designing, managing, and improving medical devices, healthcare technologies, and hospital systems to enhance patient care and ensure safety, efficiency, and innovation in clinical practice.</p>
   </section>
 
   <section id="skills">
@@ -219,84 +255,84 @@
   </section>
 
   <section id="projects">
-  <h2>🚀 Projects</h2>
+    <h2>🚀 Projects</h2>
 
-  <div class="project-category">
-    <h3>🧠 Academic Research</h3>
-    <div class="project-grid">
-      <article class="project-card">
-        <div class="project-header">
-          <h4>Vapour Responsive Thin Films</h4>
-          <a href="Assets/MTech.html" class="project-btn">View Project</a>
-        </div>
-        <p>4D smart material fabrication for vapour-sensing biomedical applications.</p>
-      </article>
+    <div class="project-category">
+      <h3>🧠 Academic Research</h3>
+      <div class="project-grid">
+        <article class="project-card">
+          <div class="project-header">
+            <h4>Vapour Responsive Thin Films</h4>
+            <a href="Assets/MTech.html" class="project-btn">View Project</a>
+          </div>
+          <p>4D smart material fabrication for vapour-sensing biomedical applications.</p>
+        </article>
 
-      <article class="project-card">
-        <div class="project-header">
-          <h4>Engineering Problems in Hospitals</h4>
-          <a href="eph.html" class="project-btn">View Project</a>
-        </div>
-        <p>Identified 30+ unmet clinical needs; proposed ECG solution using design-thinking frameworks.</p>
-      </article>
+        <article class="project-card">
+          <div class="project-header">
+            <h4>Engineering Problems in Hospitals</h4>
+            <a href="eph.html" class="project-btn">View Project</a>
+          </div>
+          <p>Identified 30+ unmet clinical needs; proposed ECG solution using design-thinking frameworks.</p>
+        </article>
 
-      <article class="project-card">
-        <div class="project-header">
-          <h4>Medical Device Innovation Project</h4>
-        </div>
-        <p>Designed a neurorehabilitation device launch strategy: business model, GTM, regulatory, financial analysis.</p>
-      </article>
+        <article class="project-card">
+          <div class="project-header">
+            <h4>Medical Device Innovation Project</h4>
+          </div>
+          <p>Designed a neurorehabilitation device launch strategy: business model, GTM, regulatory, financial analysis.</p>
+        </article>
+      </div>
     </div>
-  </div>
 
-  <div class="project-category">
-    <h3>💻 Technical</h3>
-    <div class="project-grid">
-      <article class="project-card">
-        <div class="project-header">
-          <h4>Low Back Pain App</h4>
-          <a href="Assets/app_project.html" class="project-btn">View Project</a>
-        </div>
-        <p>Android-based tracker deployed in a CMC Vellore pilot study.</p>
-      </article>
+    <div class="project-category">
+      <h3>💻 Technical</h3>
+      <div class="project-grid">
+        <article class="project-card">
+          <div class="project-header">
+            <h4>Low Back Pain App</h4>
+            <a href="Assets/app_project.html" class="project-btn">View Project</a>
+          </div>
+          <p>Android-based tracker deployed in a CMC Vellore pilot study.</p>
+        </article>
 
-      <article class="project-card">
-        <div class="project-header">
-          <h4>AR Distance Measuring App</h4>
-        </div>
-        <p>Unity + ARCore tool for clinical measurements from live camera feed.</p>
-      </article>
+        <article class="project-card">
+          <div class="project-header">
+            <h4>AR Distance Measuring App</h4>
+          </div>
+          <p>Unity + ARCore tool for clinical measurements from live camera feed.</p>
+        </article>
+      </div>
     </div>
-  </div>
 
-  <div class="project-category">
-    <h3>🌍 Personal</h3>
-    <div class="project-grid">
-      <article class="project-card">
-        <div class="project-header">
-          <h4>DSO Graph WebApp</h4>
-          <a href="Assets/dso_graph_webapp.html" class="project-btn">View Project</a>
-        </div>
-        <p>Streamlit webapp for visualizing oscilloscope data from text files.</p>
-      </article>
+    <div class="project-category">
+      <h3>🌍 Personal</h3>
+      <div class="project-grid">
+        <article class="project-card">
+          <div class="project-header">
+            <h4>DSO Graph WebApp</h4>
+            <a href="Assets/dso_graph_webapp.html" class="project-btn">View Project</a>
+          </div>
+          <p>Streamlit webapp for visualizing oscilloscope data from text files.</p>
+        </article>
 
-      <article class="project-card">
-        <div class="project-header">
-          <h4>Device Lifecycle & Risk Management</h4>
-          <a href="Assets/healthcare_analytics_project.html" class="project-btn">View Project</a>
-        </div>
-        <p>ISO 14971-compliant MVP dashboard for hospitals, enabling device risk tracking.</p>
-      </article>
+        <article class="project-card">
+          <div class="project-header">
+            <h4>Device Lifecycle & Risk Management</h4>
+            <a href="Assets/healthcare_analytics_project.html" class="project-btn">View Project</a>
+          </div>
+          <p>ISO 14971-compliant MVP dashboard for hospitals, enabling device risk tracking.</p>
+        </article>
 
-      <article class="project-card">
-        <div class="project-header">
-          <h4>EV Analytics & Strategy</h4>
-        </div>
-        <p>Designed ₹12.6 lakh crore financing plan for electric trucks with phased GTM strategy.</p>
-      </article>
+        <article class="project-card">
+          <div class="project-header">
+            <h4>EV Analytics & Strategy</h4>
+          </div>
+          <p>Designed ₹12.6 lakh crore financing plan for electric trucks with phased GTM strategy.</p>
+        </article>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
   
   <section id="certs">
     <h2>📜 Certifications</h2>
@@ -328,6 +364,14 @@
   const navLinks = document.querySelectorAll("nav a");
   const hamburger = document.querySelector(".hamburger");
   const sidebar = document.querySelector(".sidebar");
+  const overlay = document.querySelector(".overlay"); // NEW: Get the overlay element
+
+  // Function to toggle the sidebar
+  const toggleSidebar = () => {
+    sidebar.classList.toggle("active");
+    overlay.classList.toggle("active");
+    document.body.classList.toggle("sidebar-open");
+  };
 
   // Scroll spy
   window.addEventListener("scroll", () => {
@@ -346,10 +390,21 @@
     });
   });
 
-  // 🔥 Toggle sidebar on mobile
-  hamburger.addEventListener("click", () => {
-    sidebar.classList.toggle("active");
+  // Toggle sidebar on hamburger click
+  hamburger.addEventListener("click", toggleSidebar);
+
+  // NEW: Close sidebar when clicking on the overlay
+  overlay.addEventListener("click", toggleSidebar);
+
+  // NEW: Close sidebar when a nav link is clicked (for single-page apps)
+  navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      if (sidebar.classList.contains("active")) {
+        toggleSidebar();
+      }
+    });
   });
+
 </script>
 </body>
 </html>
