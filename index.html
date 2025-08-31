@@ -4,8 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rohan Singh | Portfolio</title>
-
-
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,8 +13,9 @@
     h1, h2, h3, h4, h5, h6 {
       font-family: 'Poppins', sans-serif;
     }
+
     body {
-      font-family: 'Roboto', sans-serif; 
+      font-family: 'Roboto', sans-serif;
       margin: 0;
       padding: 0;
       background: #f9f9f9;
@@ -116,8 +115,7 @@
       z-index: 1100;
       transition: transform 0.3s ease;
     }
-    
-    /* Moves the hamburger button when the sidebar is open */
+
     body.sidebar-open .hamburger {
       transform: translateX(250px);
     }
@@ -146,19 +144,15 @@
       .sidebar {
         transform: translateX(-100%);
       }
-
       .sidebar.active {
         transform: translateX(0);
       }
-
       .hamburger {
         display: block;
       }
-
       .main-content {
         margin-left: 0 !important;
       }
-
       body.sidebar-open .main-content {
         pointer-events: none;
       }
@@ -231,6 +225,76 @@
       gap: 20px;
     }
 
+    /* Contact Section Styling */
+    .contact-container {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    
+    .contact-info .socials {
+      justify-content: flex-start;
+      font-size: 1.5rem;
+      margin-bottom: 0; /* Removing extra margin */
+    }
+    
+    .contact-info .socials a {
+      color: #333; /* Darker color to be visible on white background */
+    }
+    
+    .contact-info .socials a:hover {
+      color: #007bff; /* Use a primary color for hover */
+    }
+
+    #contact-form {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+
+    #contact-form input,
+    #contact-form textarea {
+      font-family: 'Roboto', sans-serif;
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      background-color: #f9f9f9;
+      box-sizing: border-box;
+      transition: border-color 0.3s;
+    }
+
+    #contact-form input:focus,
+    #contact-form textarea:focus {
+      outline: none;
+      border-color: #007bff;
+    }
+
+    #contact-form button[type="submit"] {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(90deg, #007bff, #0056b3);
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    #contact-form button[type="submit"]:hover {
+      background: linear-gradient(90deg, #0056b3, #007bff);
+      transform: translateY(-2px);
+    }
+
+    #form-status {
+      text-align: center;
+      margin-top: 15px;
+      font-weight: 600;
+    }
+
     footer {
       background: #0c2d48;
       color: white;
@@ -259,12 +323,12 @@
     </div>
     <nav>
       <a href="#about"><i class="fas fa-user"></i> About</a>
-      
       <a href="#skills"><i class="fas fa-tools"></i> Skills</a>
       <a href="#work"><i class="fas fa-briefcase"></i> Work Exp</a>
       <a href="#projects"><i class="fas fa-project-diagram"></i> Projects</a>
       <a href="#certs"><i class="fas fa-certificate"></i> Certifications</a>
-      <a href="https://bioe-cmcvellore.weebly.com/mtech-clinical-engineering.html"><i class="fas fa-stethoscope"></i> Clinical Engineering</a>
+      <a href="#contact"><i class="fas fa-paper-plane"></i> Contact</a>
+      <a href="https://bioe-cmcvellore.weebly.com/mtech-clinical-engineering.html" target="_blank"><i class="fas fa-stethoscope"></i> Clinical Engineering</a>
     </nav>
   </div>
 
@@ -273,6 +337,7 @@
       <h2>👋 About Me</h2>
       <p>I’m a recent graduate of the M.Tech in Clinical Engineering (IIT Madras in collaboration with CMC Vellore and SCTIMST) with a background in Pharmacy. Adaptable and versatile, I thrive in cross-functional roles wearing multiple hats and leveraging my interdisciplinary background.</p>
     </section>
+
     <section id="skills">
       <h2>🧰 Skills</h2>
       <div class="card">
@@ -398,7 +463,26 @@
       </ul>
     </section>
 
-
+    <section id="contact">
+      <h2>👋 Connect With Me</h2>
+      <div class="card contact-container">
+        <div class="contact-info">
+          <p>Have a question or want to connect? Feel free to reach out!</p>
+          <div class="socials">
+            <a href="mailto:rohans.dmvt@gmail.com"><i class="fas fa-envelope"></i></a>
+            <a href="https://github.com/rxrohans" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/rohan-singh-688a7a1b8" target="_blank"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+        <form id="contact-form">
+          <input type="text" id="name" name="name" placeholder="Your Name" required>
+          <input type="email" id="email" name="email" placeholder="Your Email" required>
+          <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+          <button type="submit">Send Message</button>
+          <p id="form-status"></p>
+        </form>
+      </div>
+    </section>
 
     <footer>
       <p>© 2025 Rohan Singh | rohans.dmvt@gmail.com </p>
@@ -423,14 +507,16 @@
     window.addEventListener("scroll", () => {
       let current = "";
       sections.forEach(section => {
-        const sectionTop = section.offsetTop - 70;
-        if (window.pageYOffset >= sectionTop) {
-          current = section.getAttribute("id");
+        if (section) {
+          const sectionTop = section.offsetTop - 70;
+          if (window.pageYOffset >= sectionTop) {
+            current = section.getAttribute("id");
+          }
         }
       });
       navLinks.forEach(a => {
         a.classList.remove("active");
-        if (a.getAttribute("href").includes(current)) {
+        if (a.getAttribute("href").includes(current) && current) {
           a.classList.add("active");
         }
       });
@@ -448,6 +534,41 @@
         if (sidebar.classList.contains("active")) {
           toggleSidebar();
         }
+      });
+    });
+
+    // Contact Form Submission
+    const contactForm = document.getElementById('contact-form');
+    const formStatus = document.getElementById('form-status');
+    
+    // IMPORTANT: Replace this with your actual Google Apps Script Web App URL
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxDowmUKkq_6qqabvX3p5mZ-1AzL_LR2EmDybVNqWFZKzoU6ssHBNd7jA9ZU3nav6HL/exec';
+
+    contactForm.addEventListener('submit', e => {
+      e.preventDefault();
+      
+      formStatus.textContent = 'Sending...';
+      formStatus.style.color = '#333';
+      
+      const formData = new FormData(contactForm);
+      
+      fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => {
+        if (response.ok) {
+          formStatus.textContent = 'Message sent successfully!';
+          formStatus.style.color = 'green';
+          contactForm.reset();
+        } else {
+          throw new Error('Network response was not ok.');
+        }
+      })
+      .catch(error => {
+        console.error('Error!', error.message);
+        formStatus.textContent = 'Oops! Something went wrong.';
+        formStatus.style.color = 'red';
       });
     });
   </script>
