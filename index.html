@@ -91,11 +91,12 @@
       font-weight: bold;
     }
 
+    /* Hamburger Button */
     .hamburger {
       position: fixed;
       top: 15px;
       left: 15px;
-      background: #004e92;
+      background: #007bff;
       color: white;
       border: none;
       padding: 10px 12px;
@@ -103,8 +104,13 @@
       border-radius: 6px;
       cursor: pointer;
       display: none;
-      /* hidden on desktop */
       z-index: 1100;
+      transition: transform 0.3s ease;
+    }
+    
+    /* Moves the hamburger button when the sidebar is open */
+    body.sidebar-open .hamburger {
+      transform: translateX(250px);
     }
 
     /* Overlay for mobile menu */
@@ -126,16 +132,14 @@
       visibility: visible;
     }
 
-    /* Responsive behavior */
+    /* Responsive behavior for mobile */
     @media (max-width: 768px) {
       .sidebar {
         transform: translateX(-100%);
-        /* hidden initially */
       }
 
       .sidebar.active {
         transform: translateX(0);
-        /* slide in */
       }
 
       .hamburger {
@@ -144,11 +148,9 @@
 
       .main-content {
         margin-left: 0 !important;
-        /* remove empty space */
       }
 
       body.sidebar-open .main-content {
-        /* Optional: prevent interaction with main content */
         pointer-events: none;
       }
     }
@@ -156,9 +158,7 @@
     /* Main content */
     .main-content {
       margin-left: 240px;
-      /* Aligned with sidebar width */
       padding: 20px 40px;
-      /* Added more horizontal padding */
       max-width: 960px;
       transition: margin-left 0.3s ease;
     }
@@ -427,7 +427,7 @@
       let current = "";
       sections.forEach(section => {
         const sectionTop = section.offsetTop - 70;
-        if (pageYOffset >= sectionTop) {
+        if (window.pageYOffset >= sectionTop) {
           current = section.getAttribute("id");
         }
       });
