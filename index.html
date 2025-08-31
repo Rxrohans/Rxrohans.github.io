@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rohan Singh | Portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
@@ -14,12 +14,10 @@
       color: #333;
       line-height: 1.6;
       scroll-behavior: smooth;
-      /* display: flex;  <-- THIS WAS THE MAIN PROBLEM. REMOVED. */
     }
-    
-    /* NEW: Prevent scrolling when sidebar is open on mobile */
+
     body.sidebar-open {
-        overflow: hidden;
+      overflow: hidden;
     }
 
     /* Sidebar */
@@ -38,29 +36,35 @@
       transition: transform 0.3s ease;
       z-index: 1000;
     }
+
     .sidebar h1 {
       font-size: 1.4rem;
       margin: 0 0 10px;
     }
+
     .sidebar p {
       font-size: 0.9rem;
       margin-bottom: 15px;
       opacity: 0.85;
     }
+
     .socials {
       display: flex;
       gap: 15px;
       font-size: 1.2rem;
       margin-bottom: 25px;
     }
+
     .socials a {
       color: white;
       transition: transform 0.3s ease, color 0.3s ease;
     }
+
     .socials a:hover {
       color: #ffb400;
       transform: scale(1.2);
     }
+
     nav a {
       color: white;
       text-decoration: none;
@@ -72,17 +76,21 @@
       border-radius: 6px;
       transition: background 0.3s, transform 0.3s;
     }
+
     nav a i {
       margin-right: 10px;
     }
+
     nav a:hover {
-      background: rgba(255,255,255,0.15);
+      background: rgba(255, 255, 255, 0.15);
       transform: translateX(5px);
     }
+
     nav a.active {
       background: #145d8a;
       font-weight: bold;
     }
+
     .hamburger {
       position: fixed;
       top: 15px;
@@ -94,42 +102,51 @@
       font-size: 1.2rem;
       border-radius: 6px;
       cursor: pointer;
-      display: none; /* hidden on desktop */
+      display: none;
+      /* hidden on desktop */
       z-index: 1100;
     }
 
-    /* NEW: Overlay for mobile menu */
+    /* Overlay for mobile menu */
     .overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5);
-        z-index: 999;
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.3s ease, visibility 0.3s ease;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
     }
+
     .overlay.active {
-        opacity: 1;
-        visibility: visible;
+      opacity: 1;
+      visibility: visible;
     }
 
     /* Responsive behavior */
     @media (max-width: 768px) {
       .sidebar {
-        transform: translateX(-100%); /* hidden initially */
+        transform: translateX(-100%);
+        /* hidden initially */
       }
+
       .sidebar.active {
-        transform: translateX(0); /* slide in */
+        transform: translateX(0);
+        /* slide in */
       }
+
       .hamburger {
         display: block;
       }
+
       .main-content {
-        margin-left: 0 !important; /* remove empty space */
+        margin-left: 0 !important;
+        /* remove empty space */
       }
+
       body.sidebar-open .main-content {
         /* Optional: prevent interaction with main content */
         pointer-events: none;
@@ -138,11 +155,14 @@
 
     /* Main content */
     .main-content {
-      margin-left: 240px; /* Aligned with sidebar width */
-      padding: 20px 40px; /* Added more horizontal padding */
+      margin-left: 240px;
+      /* Aligned with sidebar width */
+      padding: 20px 40px;
+      /* Added more horizontal padding */
       max-width: 960px;
       transition: margin-left 0.3s ease;
     }
+
     h2 {
       color: #0c2d48;
       margin-top: 40px;
@@ -150,29 +170,36 @@
       border-bottom: 2px solid #0c2d48;
       padding-bottom: 6px;
     }
-    .card, .project-card {
+
+    .card,
+    .project-card {
       background: white;
       padding: 20px;
       border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
       margin-bottom: 20px;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
-    .card:hover, .project-card:hover {
+
+    .card:hover,
+    .project-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
     }
+
     .project-header {
       margin: 0;
       display: flex;
       justify-content: space-between;
       align-items: center;
       font-size: 1.1rem;
-      margin-bottom: 10px; /* NEW: Added margin for spacing */
+      margin-bottom: 10px;
     }
+
     .project-header h4 {
-        margin: 0;
+      margin: 0;
     }
+
     .project-btn {
       background: linear-gradient(90deg, #0c2d48, #145d8a);
       color: white;
@@ -181,18 +208,18 @@
       text-decoration: none;
       border-radius: 20px;
       transition: all 0.3s ease;
-      white-space: nowrap; /* NEW: Prevents button text from wrapping */
+      white-space: nowrap;
     }
+
     .project-btn:hover {
       background: linear-gradient(90deg, #145d8a, #0c2d48);
       transform: scale(1.05);
     }
 
-    /* NEW: Added basic grid for projects */
     .project-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
     }
 
     footer {
@@ -205,206 +232,227 @@
     }
   </style>
 </head>
+
 <body>
 
-<button class="hamburger"><i class="fas fa-bars"></i></button>
+  <button class="hamburger"><i class="fas fa-bars"></i></button>
 
-<div class="overlay"></div>
+  <div class="overlay"></div>
 
-<div class="sidebar">
-  <h1>Rohan Singh</h1>
-  <p>Clinical Engineering | AI | MedTech Innovation</p>
-  <div class="socials">
-    <a href="mailto:rohans.dmvt@gmail.com"><i class="fas fa-envelope"></i></a>
-    <a href="https://github.com/rxrohans" target="_blank"><i class="fab fa-github"></i></a>
-    <a href="https://www.linkedin.com/in/rohan-singh-688a7a1b8" target="_blank"><i class="fab fa-linkedin"></i></a>
+  <div class="sidebar">
+    <h1>Rohan Singh</h1>
+    <p>Clinical Engineering | AI | MedTech Innovation</p>
+    <div class="socials">
+      <a href="mailto:rohans.dmvt@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://github.com/rxrohans" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/rohan-singh-688a7a1b8" target="_blank"><i class="fab fa-linkedin"></i></a>
+    </div>
+    <nav>
+      <a href="#about"><i class="fas fa-user"></i> About</a>
+      <a href="#clinical"><i class="fas fa-stethoscope"></i> Clinical Engg.</a>
+      <a href="#skills"><i class="fas fa-tools"></i> Skills</a>
+      <a href="#work"><i class="fas fa-briefcase"></i> Work Exp</a>
+      <a href="#projects"><i class="fas fa-project-diagram"></i> Projects</a>
+      <a href="#certs"><i class="fas fa-certificate"></i> Certifications</a>
+      <a href="#extra"><i class="fas fa-star"></i> Extracurriculars</a>
+    </nav>
   </div>
-  <nav>
-    <a href="#about"><i class="fas fa-user"></i> About</a>
-    <a href="#clinical"><i class="fas fa-stethoscope"></i> Clinical Engg.</a>
-    <a href="#skills"><i class="fas fa-tools"></i> Skills</a>
-    <a href="#work"><i class="fas fa-briefcase"></i> Work Exp</a>
-    <a href="#projects"><i class="fas fa-project-diagram"></i> Projects</a>
-    <a href="#certs"><i class="fas fa-certificate"></i> Certifications</a>
-    <a href="#extra"><i class="fas fa-star"></i> Extracurriculars</a>
-  </nav>
-</div>
 
-<div class="main-content">
-  <section id="about">
-    <h2>👋 About Me</h2>
-    <p>I’m a recent graduate of the M.Tech in Clinical Engineering (IIT Madras in collaboration with CMC Vellore and SCTIMST) with a background in Pharmacy. Adaptable and versatile, I thrive in cross-functional roles wearing multiple hats and leveraging my interdisciplinary background.</p>
-  </section>
+  <div class="main-content">
+    <section id="about">
+      <h2>👋 About Me</h2>
+      <p>I’m a recent graduate of the M.Tech in Clinical Engineering (IIT Madras in collaboration with CMC Vellore and SCTIMST) with a background in Pharmacy. Adaptable and versatile, I thrive in cross-functional roles wearing multiple hats and leveraging my interdisciplinary background.</p>
+    </section>
 
-  <section id="clinical">
-    <h2>🔬 What is Clinical Engineering?</h2>
-    <p>Clinical Engineering is a multidisciplinary field that bridges medicine, engineering, and healthcare management. It focuses on designing, managing, and improving medical devices, healthcare technologies, and hospital systems to enhance patient care and ensure safety, efficiency, and innovation in clinical practice.</p>
-  </section>
+    <section id="clinical">
+      <h2>🔬 What is Clinical Engineering?</h2>
+      <p>Clinical Engineering is a multidisciplinary field that bridges medicine, engineering, and healthcare management. It focuses on designing, managing, and improving medical devices, healthcare technologies, and hospital systems to enhance patient care and ensure safety, efficiency, and innovation in clinical practice.</p>
+    </section>
 
-  <section id="skills">
-    <h2>🧰 Skills</h2>
-    <div class="card"><h3>Technical</h3><ul><li>Python (Pandas, NumPy)</li><li>SQL (MySQL)</li><li>Power BI, Tableau, MATLAB</li><li>Android Studio, Streamlit</li><li>Fusion 360, Creo</li></ul></div>
-    <div class="card"><h3>Soft</h3><ul><li>Strategic Thinking</li><li>Problem Solving</li><li>Cross-Functional Collaboration</li><li>Communication & Presentation</li></ul></div>
-  </section>
-
-  <section id="work">
-    <h2>💼 Work Experience</h2>
-    <div class="card"><h3>AI Contributor | Outlier AI</h3><p>Jun 2025 – Present</p><p>Worked on RLHF, SFT, and prompt engineering across diverse AI use cases with structured reasoning focus.</p></div>
-    <div class="card"><h3>Power BI Intern | Celebal Technologies</h3><p>Jun – Aug 2025</p><p>Built ETL pipelines and interactive dashboards with KPIs, drilldowns, and bookmarks, improving reporting efficiency.</p></div>
-    <div class="card"><h3>Hospital Pharmacy Intern | RGSSH</h3><p>Jun – Jul 2022</p><p>Audited 10+ invalid prescriptions and optimized drug inventory, supporting compliance and audits.</p></div>
-  </section>
-
-  <section id="projects">
-    <h2>🚀 Projects</h2>
-
-    <div class="project-category">
-      <h3>🧠 Academic Research</h3>
-      <div class="project-grid">
-        <article class="project-card">
-          <div class="project-header">
-            <h4>Vapour Responsive Thin Films</h4>
-            <a href="Assets/MTech.html" class="project-btn">View Project</a>
-          </div>
-          <p>4D smart material fabrication for vapour-sensing biomedical applications.</p>
-        </article>
-
-        <article class="project-card">
-          <div class="project-header">
-            <h4>Engineering Problems in Hospitals</h4>
-            <a href="eph.html" class="project-btn">View Project</a>
-          </div>
-          <p>Identified 30+ unmet clinical needs; proposed ECG solution using design-thinking frameworks.</p>
-        </article>
-
-        <article class="project-card">
-          <div class="project-header">
-            <h4>Medical Device Innovation Project</h4>
-          </div>
-          <p>Designed a neurorehabilitation device launch strategy: business model, GTM, regulatory, financial analysis.</p>
-        </article>
+    <section id="skills">
+      <h2>🧰 Skills</h2>
+      <div class="card">
+        <h3>Technical</h3>
+        <ul>
+          <li>Python (Pandas, NumPy)</li>
+          <li>SQL (MySQL)</li>
+          <li>Power BI, Tableau, MATLAB</li>
+          <li>Android Studio, Streamlit</li>
+          <li>Fusion 360, Creo</li>
+        </ul>
       </div>
-    </div>
-
-    <div class="project-category">
-      <h3>💻 Technical</h3>
-      <div class="project-grid">
-        <article class="project-card">
-          <div class="project-header">
-            <h4>Low Back Pain App</h4>
-            <a href="Assets/app_project.html" class="project-btn">View Project</a>
-          </div>
-          <p>Android-based tracker deployed in a CMC Vellore pilot study.</p>
-        </article>
-
-        <article class="project-card">
-          <div class="project-header">
-            <h4>AR Distance Measuring App</h4>
-          </div>
-          <p>Unity + ARCore tool for clinical measurements from live camera feed.</p>
-        </article>
+      <div class="card">
+        <h3>Soft</h3>
+        <ul>
+          <li>Strategic Thinking</li>
+          <li>Problem Solving</li>
+          <li>Cross-Functional Collaboration</li>
+          <li>Communication & Presentation</li>
+        </ul>
       </div>
-    </div>
+    </section>
 
-    <div class="project-category">
-      <h3>🌍 Personal</h3>
-      <div class="project-grid">
-        <article class="project-card">
-          <div class="project-header">
-            <h4>DSO Graph WebApp</h4>
-            <a href="Assets/dso_graph_webapp.html" class="project-btn">View Project</a>
-          </div>
-          <p>Streamlit webapp for visualizing oscilloscope data from text files.</p>
-        </article>
-
-        <article class="project-card">
-          <div class="project-header">
-            <h4>Device Lifecycle & Risk Management</h4>
-            <a href="Assets/healthcare_analytics_project.html" class="project-btn">View Project</a>
-          </div>
-          <p>ISO 14971-compliant MVP dashboard for hospitals, enabling device risk tracking.</p>
-        </article>
-
-        <article class="project-card">
-          <div class="project-header">
-            <h4>EV Analytics & Strategy</h4>
-          </div>
-          <p>Designed ₹12.6 lakh crore financing plan for electric trucks with phased GTM strategy.</p>
-        </article>
+    <section id="work">
+      <h2>💼 Work Experience</h2>
+      <div class="card">
+        <h3>AI Contributor | Outlier AI</h3>
+        <p>Jun 2025 – Present</p>
+        <p>Worked on RLHF, SFT, and prompt engineering across diverse AI use cases with structured reasoning focus.</p>
       </div>
-    </div>
-  </section>
-  
-  <section id="certs">
-    <h2>📜 Certifications</h2>
-    <ul>
-      <li>BCG, Pfizer, Deloitte – Job Simulations (Forage)</li>
-      <li>Google Cloud Prompt Design</li>
-      <li>Google AI Essentials</li>
-      <li>Generative AI Mastermind (Outskill)</li>
-      <li>Python for Data Science – Coursera</li>
-    </ul>
-  </section>
+      <div class="card">
+        <h3>Power BI Intern | Celebal Technologies</h3>
+        <p>Jun – Aug 2025</p>
+        <p>Built ETL pipelines and interactive dashboards with KPIs, drilldowns, and bookmarks, improving reporting efficiency.</p>
+      </div>
+      <div class="card">
+        <h3>Hospital Pharmacy Intern | RGSSH</h3>
+        <p>Jun – Jul 2022</p>
+        <p>Audited 10+ invalid prescriptions and optimized drug inventory, supporting compliance and audits.</p>
+      </div>
+    </section>
 
-  <section id="extra">
-    <h2>🌟 Extracurriculars</h2>
-    <ul>
-      <li>Fabricate 2025 – Poster presentation & logistics coordinator</li>
-      <li>Volunteer – Rehab Mela, CMC Vellore (2024)</li>
-      <li>Emergency Response Team – Fire Drill (2023)</li>
-    </ul>
-  </section>
+    <section id="projects">
+      <h2>🚀 Projects</h2>
+      <div class="project-category">
+        <h3>🧠 Academic Research</h3>
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-header">
+              <h4>Vapour Responsive Thin Films</h4>
+              <a href="Assets/MTech.html" class="project-btn">View Project</a>
+            </div>
+            <p>4D smart material fabrication for vapour-sensing biomedical applications.</p>
+          </article>
+          <article class="project-card">
+            <div class="project-header">
+              <h4>Engineering Problems in Hospitals</h4>
+              <a href="eph.html" class="project-btn">View Project</a>
+            </div>
+            <p>Identified 30+ unmet clinical needs; proposed ECG solution using design-thinking frameworks.</p>
+          </article>
+          <article class="project-card">
+            <div class="project-header">
+              <h4>Medical Device Innovation Project</h4>
+            </div>
+            <p>Designed a neurorehabilitation device launch strategy: business model, GTM, regulatory, financial analysis.</p>
+          </article>
+        </div>
+      </div>
+      <div class="project-category">
+        <h3>💻 Technical</h3>
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-header">
+              <h4>Low Back Pain App</h4>
+              <a href="Assets/app_project.html" class="project-btn">View Project</a>
+            </div>
+            <p>Android-based tracker deployed in a CMC Vellore pilot study.</p>
+          </article>
+          <article class="project-card">
+            <div class="project-header">
+              <h4>AR Distance Measuring App</h4>
+            </div>
+            <p>Unity + ARCore tool for clinical measurements from live camera feed.</p>
+          </article>
+        </div>
+      </div>
+      <div class="project-category">
+        <h3>🌍 Personal</h3>
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-header">
+              <h4>DSO Graph WebApp</h4>
+              <a href="Assets/dso_graph_webapp.html" class="project-btn">View Project</a>
+            </div>
+            <p>Streamlit webapp for visualizing oscilloscope data from text files.</p>
+          </article>
+          <article class="project-card">
+            <div class="project-header">
+              <h4>Device Lifecycle & Risk Management</h4>
+              <a href="Assets/healthcare_analytics_project.html" class="project-btn">View Project</a>
+            </div>
+            <p>ISO 14971-compliant MVP dashboard for hospitals, enabling device risk tracking.</p>
+          </article>
+          <article class="project-card">
+            <div class="project-header">
+              <h4>EV Analytics & Strategy</h4>
+            </div>
+            <p>Designed ₹12.6 lakh crore financing plan for electric trucks with phased GTM strategy.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-  <footer>
-    <p>© 2025 Rohan Singh | MedTech & AI Portfolio</p>
-  </footer>
-</div>
+    <section id="certs">
+      <h2>📜 Certifications</h2>
+      <ul>
+        <li>BCG, Pfizer, Deloitte – Job Simulations (Forage)</li>
+        <li>Google Cloud Prompt Design</li>
+        <li>Google AI Essentials</li>
+        <li>Generative AI Mastermind (Outskill)</li>
+        <li>Python for Data Science – Coursera</li>
+      </ul>
+    </section>
 
-<script>
-  const sections = document.querySelectorAll("section");
-  const navLinks = document.querySelectorAll("nav a");
-  const hamburger = document.querySelector(".hamburger");
-  const sidebar = document.querySelector(".sidebar");
-  const overlay = document.querySelector(".overlay"); // NEW: Get the overlay element
+    <section id="extra">
+      <h2>🌟 Extracurriculars</h2>
+      <ul>
+        <li>Fabricate 2025 – Poster presentation & logistics coordinator</li>
+        <li>Volunteer – Rehab Mela, CMC Vellore (2024)</li>
+        <li>Emergency Response Team – Fire Drill (2023)</li>
+      </ul>
+    </section>
 
-  // Function to toggle the sidebar
-  const toggleSidebar = () => {
-    sidebar.classList.toggle("active");
-    overlay.classList.toggle("active");
-    document.body.classList.toggle("sidebar-open");
-  };
+    <footer>
+      <p>© 2025 Rohan Singh | MedTech & AI Portfolio</p>
+    </footer>
+  </div>
 
-  // Scroll spy
-  window.addEventListener("scroll", () => {
-    let current = "";
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 70;
-      if (pageYOffset >= sectionTop) {
-        current = section.getAttribute("id");
-      }
+  <script>
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll("nav a");
+    const hamburger = document.querySelector(".hamburger");
+    const sidebar = document.querySelector(".sidebar");
+    const overlay = document.querySelector(".overlay");
+
+    // Function to toggle the sidebar
+    const toggleSidebar = () => {
+      sidebar.classList.toggle("active");
+      overlay.classList.toggle("active");
+      document.body.classList.toggle("sidebar-open");
+    };
+
+    // Scroll spy
+    window.addEventListener("scroll", () => {
+      let current = "";
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 70;
+        if (pageYOffset >= sectionTop) {
+          current = section.getAttribute("id");
+        }
+      });
+      navLinks.forEach(a => {
+        a.classList.remove("active");
+        if (a.getAttribute("href").includes(current)) {
+          a.classList.add("active");
+        }
+      });
     });
-    navLinks.forEach(a => {
-      a.classList.remove("active");
-      if (a.getAttribute("href").includes(current)) {
-        a.classList.add("active");
-      }
+
+    // Toggle sidebar on hamburger click
+    hamburger.addEventListener("click", toggleSidebar);
+
+    // Close sidebar when clicking on the overlay
+    overlay.addEventListener("click", toggleSidebar);
+
+    // Close sidebar when a nav link is clicked
+    navLinks.forEach(link => {
+      link.addEventListener("click", () => {
+        if (sidebar.classList.contains("active")) {
+          toggleSidebar();
+        }
+      });
     });
-  });
-
-  // Toggle sidebar on hamburger click
-  hamburger.addEventListener("click", toggleSidebar);
-
-  // NEW: Close sidebar when clicking on the overlay
-  overlay.addEventListener("click", toggleSidebar);
-
-  // NEW: Close sidebar when a nav link is clicked (for single-page apps)
-  navLinks.forEach(link => {
-    link.addEventListener("click", () => {
-      if (sidebar.classList.contains("active")) {
-        toggleSidebar();
-      }
-    });
-  });
-
-</script>
+  </script>
 </body>
 </html>
