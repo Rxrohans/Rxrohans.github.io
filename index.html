@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Rohan Singh | Clinical Engineering Portfolio</title>
+  <title>Rohan Singh | Portfolio</title>
   <link rel="stylesheet" href="style.css" />
   <style>
     body {
@@ -16,12 +16,28 @@
     header {
       background: #0c2d48;
       color: white;
-      padding: 30px 20px;
-      text-align: center;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
-    .profile-header h1 {
-      font-size: 2.5rem;
+    header h1 {
       margin: 0;
+      font-size: 1.8rem;
+    }
+    header p {
+      margin: 5px 0 0;
+      font-size: 0.95rem;
+      opacity: 0.8;
+    }
+    .socials a {
+      margin-left: 15px;
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
     }
     section {
       padding: 40px 30px;
@@ -32,137 +48,178 @@
       color: #0c2d48;
       margin-top: 40px;
       font-size: 1.8rem;
+      border-bottom: 2px solid #0c2d48;
+      padding-bottom: 8px;
     }
-    h3 {
-      margin-bottom: 0;
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      margin-bottom: 20px;
+    }
+    .project h3 {
+      margin: 0;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-    }
-    .project {
-      margin-bottom: 30px;
+      align-items: center;
     }
     .project-link-sm {
       background-color: #0c2d48;
       color: white;
       padding: 4px 10px;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       text-decoration: none;
-      margin-left: 10px;
       border-radius: 4px;
     }
-    ul {
-      list-style-type: disc;
-      padding-left: 20px;
-      margin-bottom: 20px;
-    }
-    a {
-      color: #0c2d48;
+    footer {
+      background: #0c2d48;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
     }
   </style>
 </head>
 <body>
 
-<header class="profile-header">
-  <h1>Rohan Singh</h1>
-  <p>Clinical Engineering | Pharmacist | MedTech Enthusiast</p>
+<header>
+  <div>
+    <h1>Rohan Singh</h1>
+    <p>Clinical Engineering | AI | MedTech Innovation</p>
+  </div>
+  <div class="socials">
+    <a href="mailto:rohans.dmvt@gmail.com">📧</a>
+    <a href="https://github.com/rxrohans" target="_blank">💻</a>
+    <a href="https://www.linkedin.com/in/rohan-singh-688a7a1b8" target="_blank">🔗</a>
+  </div>
 </header>
 
 <section>
-  <h2>👋About me</h2>
-  <p>I'm completing my M.Tech in Clinical Engineering at IIT Madras. I completed my bachelors in Pharmacy and has developed a deep interest in digital health, Healthcare consulting and medical device innovation. My portfolio features some academic and personal projects that span app development, smart biomaterials, and healthcare analytics.</p>
+  <h2>👋 About Me</h2>
+  <p>I’m recent graduate of MTech Clinical Engineering from IIT Madras (in collaboration with CMC Vellore and SCTIMST) with a background in Pharmacy. 
+     Adaptable and versatile, I thrive in cross-functional roles wearing multiple hats and leveraging my interdisciplinary background.</p>
+</section>
 
-  <h2 id="academic">🧠 Academic Research Projects</h2>
-
-  <div class="project">
-    <h3>
-      Vapour Responsive Programmable Thin Films
-      <a class="project-link-sm" href="Assets/MTech.html">View Project</a>
-    </h3>
-    <p>Chitosan-BaTiO3-based responsive hydrogel films for smart actuation and vapor-sensing biomedical tools.</p>
-  </div>
-
-  <div class="project">
-    <h3>
-      Lab Internships @ SCTIMST
-      <a class="project-link-sm" href="sctimst_internships.html">View Project</a>
-    </h3>
-    <ul>
-      <li>Glucometer Risk Assessment – ISO 14971 (Regulatory Affairs)</li>
-      <li>Wound Healing Study – L929 scratch assay with Ascorbic Acid</li>
-      <li>PEI-Histidine Nanoplexes – Intracellular drug delivery assay</li>
-    </ul>
-  </div>
-
-  <div class="project">
-    <h3>
-      Engineering Problems in Hospitals (EPH)
-      <a class="project-link-sm" href="eph.html">View Project</a>
-    </h3>
-    <p>Screened 30+ unmet clinical problems and proposed a novel ECG measurement device.</p>
-  </div>
-
-  <h2 id="technical">💻 Technical Projects</h2>
-
-  <div class="project">
-    <h3>
-      Low Back Pain Tracking App
-      <a class="project-link-sm" href="Assets/app_project.html">View Project</a>
-    </h3>
-    <p>Android-based symptom tracker deployed in a clinical pilot at CMC Vellore for collecting LBP-related data.</p>
-  </div>
-
-  <div class="project">
-    <h3>
-      AR Distance Measuring App
-      <a class="project-link-sm" href="ar-distance-app.html">View Project</a>
-    </h3>
-    <p>ARCore + Unity-based app to measure distances from camera feed with medical application use cases.</p>
-  </div>
-
-  <h2 id="personal">🚀 Personal Projects</h2>
-
-  <div class="project">
-    <h3>
-      DSO Graph WebApp
-      <a class="project-link-sm" href="Assets/dso_graph_webapp.html">View Project</a>
-    </h3>
-    <p>Streamlit app to visualize DSO voltage-time waveform data from unstructured `.txt` files.</p>
-  </div>
-
-  <div class="project">
-    <h3>
-      Digital Device Lifecycle & Risk Mangement Platform
-      <a class="project-link-sm" href="Assets/healthcare_analytics_project.html">View Project</a>
-    </h3>
-    <p>Power BI dashboard for tracking maintenance status, technician loads, and ISO 14971 risk indicators in hospitals.</p>
-  </div>
-
+<section>
   <h2>🧰 Skills</h2>
-  <ul>
-    <li><strong>Statistics:</strong> SQL (MySQL), Excel (Basics)</li>
-    <li><strong>Visualization:</strong> Power BI, Tableau, MATLAB</li>
-    <li><strong>Development:</strong> Android Studio, Streamlit</li>
-    <li><strong>3D Modeling:</strong> Fusion 360, Creo</li>
-    <li><strong>Languages:</strong> Python, Kotlin (Basics)</li>
-  </ul>
+  <div class="skills-grid">
+    <div class="card">
+      <h3>Technical</h3>
+      <ul>
+        <li>Python (Pandas, NumPy)</li>
+        <li>SQL (MySQL)</li>
+        <li>Power BI, Tableau, MATLAB</li>
+        <li>Android Studio, Streamlit</li>
+        <li>Fusion 360, Creo</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Soft</h3>
+      <ul>
+        <li>Strategic Thinking</li>
+        <li>Problem Solving</li>
+        <li>Cross-Functional Collaboration</li>
+        <li>Communication & Presentation</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
+<section>
+  <h2>💼 Work Experience</h2>
+  <div class="card">
+    <h3>AI Contributor | Outlier AI</h3>
+    <p>Jun 2025 – Present</p>
+    <p>Worked on RLHF, SFT, and prompt engineering across diverse AI use cases with structured reasoning focus.</p>
+  </div>
+  <div class="card">
+    <h3>Power BI Intern | Celebal Technologies</h3>
+    <p>Jun – Aug 2025</p>
+    <p>Built ETL pipelines and interactive dashboards with KPIs, drilldowns, and bookmarks, improving reporting efficiency.</p>
+  </div>
+  <div class="card">
+    <h3>Hospital Pharmacy Intern | RGSSH</h3>
+    <p>Jun – Jul 2022</p>
+    <p>Audited 10+ invalid prescriptions and optimized drug inventory, supporting compliance and audits.</p>
+  </div>
+</section>
+
+<section>
+  <h2>🚀 Projects</h2>
+
+  <h3>🧠 Academic Research</h3>
+  <div class="project card">
+    <h3>Vapour Responsive Thin Films 
+      <a class="project-link-sm" href="Assets/MTech.html">View</a></h3>
+    <p>4D smart material fabrication for vapour-sensing biomedical applications.</p>
+  </div>
+  <div class="project card">
+    <h3>Engineering Problems in Hospitals 
+      <a class="project-link-sm" href="eph.html">View</a></h3>
+    <p>Identified 30+ unmet clinical needs; proposed ECG solution using design-thinking frameworks.</p>
+  </div>
+  <div class="project card">
+    <h3>Medical Device Innovation Project</h3>
+    <p>Designed a neurorehabilitation device launch strategy: business model, GTM, regulatory, financial analysis.</p>
+  </div>
+
+  <h3>💻 Technical</h3>
+  <div class="project card">
+    <h3>Low Back Pain App 
+      <a class="project-link-sm" href="Assets/app_project.html">View</a></h3>
+    <p>Android-based tracker deployed in a CMC Vellore pilot study.</p>
+  </div>
+  <div class="project card">
+    <h3>AR Distance Measuring App</h3>
+    <p>Unity + ARCore tool for clinical measurements from live camera feed.</p>
+  </div>
+
+  <h3>🌍 Personal</h3>
+  <div class="project card">
+    <h3>DSO Graph WebApp 
+      <a class="project-link-sm" href="Assets/dso_graph_webapp.html">View</a></h3>
+    <p>Streamlit webapp for visualizing oscilloscope data from text files.</p>
+  </div>
+  <div class="project card">
+    <h3>Device Lifecycle & Risk Management 
+      <a class="project-link-sm" href="Assets/healthcare_analytics_project.html">View</a></h3>
+    <p>ISO 14971-compliant MVP dashboard for hospitals, enabling device risk tracking.</p>
+  </div>
+  <div class="project card">
+    <h3>EV Analytics & Strategy (Turno Case Study)</h3>
+    <p>Designed ₹12.6 lakh crore financing plan for electric trucks with phased GTM strategy.</p>
+  </div>
+</section>
+
+<section>
   <h2>📜 Certifications</h2>
   <ul>
-    <li>BCG Strategy Consulting Simulation – Forage, Jan 2025</li>
-    <li>Pfizer Molecule-to-Market Simulation – Forage, Feb 2025</li>
+    <li>BCG, Pfizer, Deloitte – Job Simulations (Forage)</li>
+    <li>Google Cloud Prompt Design</li>
+    <li>Google AI Essentials</li>
+    <li>Generative AI Mastermind (Outskill)</li>
     <li>Python for Data Science – Coursera</li>
-    <li>Tableau Fundamentals – DataCamp</li>
-    <li>MATLAB Onramp – MathWorks</li>
   </ul>
-
-  <h2>📬 Contact</h2>
-  <p>
-    📧 Email: <a href="mailto:rohans.dmvt@gmail.com">rohans.dmvt@gmail.com</a><br />
-    💻 GitHub: <a href="https://github.com/rxrohans" target="_blank">github.com/rxrohans</a><br />
-    🌐 LinkedIn: <a href="https://www.linkedin.com/in/rohan-singh-688a7a1b8" target="_blank">rohan-singh</a>
-  </p>
 </section>
+
+<section>
+  <h2>🌟 Extracurriculars</h2>
+  <ul>
+    <li>Fabricate 2025 – Poster presentation & logistics coordinator</li>
+    <li>Volunteer – Rehab Mela, CMC Vellore (2024)</li>
+    <li>Emergency Response Team – Fire Drill (2023)</li>
+  </ul>
+</section>
+
+<footer>
+  <p>© 2025 Rohan Singh | MedTech & AI Portfolio</p>
+</footer>
 
 </body>
 </html>
