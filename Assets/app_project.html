@@ -2,40 +2,67 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Low Back Pain App | Rohan Singh</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Low back pain tracking app | Rohan Singh</title>
+  <meta name="description" content="An Android app for logging low back pain across the day alongside sleep, medication, work and activity.">
+  <meta name="theme-color" content="#231C3F">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23231C3F'/%3E%3Ccircle cx='32' cy='32' r='13' fill='none' stroke='%23E7A9BE' stroke-width='5'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="project.css">
 </head>
 <body>
-  <header>
-    <h1>Low Back Pain Tracking App</h1>
-    <p>Clinical App for Pain Tracking</p>
+  <header class="top">
+    <div class="wrap">
+      <a class="brand" href="../index.html">Rohan Singh</a>
+      <a class="back" href="../index.html#work">All work</a>
+    </div>
   </header>
-  <section>
-    <h2>Problem Statement</h2>
-    <p>Clinicians and physiotherapists need a method to track patient-reported back pain across the day and correlate it with sleep, medication, and activity levels.</p>
-
-    <h2>Objectives</h2>
-    <ul>
-      <li>Record pain levels in morning, afternoon, and evening</li>
-      <li>Link symptoms with lifestyle inputs (sleep, meds)</li>
-      <li>Deploy app for pilot testing at clinical setting</li>
-    </ul>
-
-    <h2>Solution</h2>
-    <p>
-      Built using Kotlin and integrated with Google AppScript & Sheets for cloud data collection. SQLite used for offline mode.
-    </p>
-
-    <h2>Skills Used</h2>
-    <ul>
-      <li>Kotlin</li>
-      <li>Google AppScript, SQLite</li>
-      <li>Android Studio</li>
-    </ul>
-
-    <p><a href="https://github.com/Rxrohans/App-Project" target="_blank">🔗 View on GitHub</a></p>
-    <a class="back-link" href="index.html">← Back to Portfolio</a>
-  </section>
+  <main>
+    <div class="wrap">
+      <div class="title">
+        <h1>Low back pain tracking app</h1>
+        <p class="lede">An Android diary where a person logs back pain three times a day, next to sleep, medication, work and activity.</p>
+      </div>
+      <div class="layout">
+        <dl class="facts">
+          <div><dt>Context</dt><dd>Clinical internship, CMC Vellore</dd></div>
+          <div><dt>When</dt><dd>Jan to Jun 2024</dd></div>
+          <div><dt>Tools</dt><dd>Kotlin, Android Studio, Google Apps Script, Google Sheets, SQLite</dd></div>
+          <div><dt>Testing</dt><dd>Installed on 10 people's phones</dd></div>
+          <div><dt>Links</dt><dd><a href="https://github.com/Rxrohans/App-Project" target="_blank" rel="noopener">Source on GitHub</a></dd></div>
+        </dl>
+        <div class="body">
+          <section>
+            <h2>Problem</h2>
+            <p>Low back pain is common and long-lasting, and how bad it feels changes through the day. Patients rarely record it, and almost never alongside the things that affect it, such as sleep and activity. That leaves clinicians with a vague picture.</p>
+          </section>
+          <section>
+            <h2>What I built</h2>
+            <ul>
+              <li>A daily form that records pain in the morning, afternoon and evening on a 0 to 10 scale.</li>
+              <li>Questions on sleep quality, pain medication, whether it was a working day, and physical activity.</li>
+              <li>Responses saved to Google Sheets through Apps Script, with SQLite storage so it works offline.</li>
+              <li>I wrote the user stories first, then built the app around them.</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Testing</h2>
+            <p>I installed the app on 10 people's phones, friends and colleagues in different states, to check that it worked across devices and to find bugs and performance problems.</p>
+            <figure class="media shots">
+              <img src="../UI_Screenshots/App_UI_unfilled.png" width="193" height="365" alt="Empty daily survey screen" loading="lazy">
+              <img src="../UI_Screenshots/App_UI.png" width="204" height="370" alt="Filled daily survey screen with sleep rating, pain sliders and medication answers" loading="lazy">
+            </figure>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="wrap">
+      <div class="next"><span>New Delhi, India</span><a href="../index.html#contact">Contact me</a></div>
+    </div>
+  </footer>
 </body>
 </html>

@@ -1,576 +1,762 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-palette="stain">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rohan Singh | Portfolio</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rohan Singh | Clinical engineering and AI evaluation</title>
+  <meta name="description" content="Clinical engineer and registered pharmacist. AI evaluation, healthcare benchmark tasks, clinical requirements and data work.">
+  <meta property="og:title" content="Rohan Singh | Clinical engineering and AI evaluation">
+  <meta property="og:description" content="Clinical engineer and registered pharmacist working on AI evaluation and healthcare data.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://rxrohans.github.io/Assets/Dashboard.png">
+  <meta name="theme-color" content="#231C3F">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23231C3F'/%3E%3Ccircle cx='32' cy='32' r='13' fill='none' stroke='%23E7A9BE' stroke-width='5'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
 
   <style>
-    h1, h2, h3, h4, h5, h6 {
-      font-family: 'Poppins', sans-serif;
+    :root {
+      color-scheme: light;
+      --serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --sans: 'Hanken Grotesk', 'Helvetica Neue', Arial, sans-serif;
+      --wrap: 1180px;
+      --gutter: clamp(20px, 4.5vw, 56px);
+    }
+    /* H&E stain: hematoxylin violet ink, eosin rose marks, slide-white page */
+    [data-palette="stain"] {
+      --page: #F6F5F8;
+      --sheet: #FFFFFF;
+      --ink: #231C3F;
+      --ink-soft: #5D5777;
+      --mark: #B03F68;
+      --wash: #F3DCE5;
+      --rule: #E1DEEA;
+      --deep: #231C3F;
+      --deep-text: #ECE9F4;
+      --deep-soft: #ABA4C4;
+      --deep-mark: #E7A9BE;
+    }
+    /* Theatre: scrub green ink, highlighter marks */
+    [data-palette="theatre"] {
+      --page: #F0F2EF;
+      --sheet: #FFFFFF;
+      --ink: #12302A;
+      --ink-soft: #4E645E;
+      --mark: #1F6B5C;
+      --wash: #EEE38A;
+      --rule: #D9DED9;
+      --deep: #12302A;
+      --deep-text: #E8EEEA;
+      --deep-soft: #9DB3AC;
+      --deep-mark: #EEE38A;
+    }
+    /* Ledger: graphite ink, cobalt marks */
+    [data-palette="ledger"] {
+      --page: #F2F2EF;
+      --sheet: #FFFFFF;
+      --ink: #1D2430;
+      --ink-soft: #586273;
+      --mark: #2340C4;
+      --wash: #DCE3FB;
+      --rule: #DCDDDA;
+      --deep: #1D2430;
+      --deep-text: #ECEEF2;
+      --deep-soft: #A2AABA;
+      --deep-mark: #A9B8F5;
     }
 
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 76px; }
     body {
-      font-family: 'Roboto', sans-serif;
       margin: 0;
-      padding: 0;
-      background: #f9f9f9;
-      color: #333;
+      background: var(--page);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 1.0625rem;
       line-height: 1.6;
-      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
+    h1, h2, h3 { margin: 0; font-family: var(--serif); font-weight: 400; color: var(--ink); }
+    p { margin: 0 0 0.9em; }
+    a { color: inherit; text-decoration-color: var(--mark); text-decoration-thickness: 1px; text-underline-offset: 0.22em; }
+    a:hover { color: var(--mark); }
+    :focus-visible { outline: 2px solid var(--mark); outline-offset: 3px; border-radius: 2px; }
+    img, video { display: block; max-width: 100%; }
+    .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
+    .skip { position: absolute; left: -9999px; top: 10px; z-index: 99; background: var(--ink); color: #fff; padding: 8px 14px; }
+    .skip:focus { left: 10px; }
 
-    body.sidebar-open {
-      overflow: hidden;
-    }
+    /* Navigation */
+    .top { position: sticky; top: 0; z-index: 40; background: color-mix(in srgb, var(--page) 92%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid transparent; transition: border-color .3s; }
+    .top.scrolled { border-bottom-color: var(--rule); }
+    .top .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .brand { font-family: var(--serif); font-size: 1.25rem; text-decoration: none; }
+    .brand:hover { color: var(--ink); }
+    .top nav { display: flex; gap: clamp(14px, 2.4vw, 32px); }
+    .top nav a { text-decoration: none; font-size: 0.97rem; color: var(--ink-soft); padding: 6px 0; border-bottom: 1px solid transparent; }
+    .top nav a:hover, .top nav a[aria-current="true"] { color: var(--ink); border-bottom-color: var(--mark); }
+    .menu { display: none; font: inherit; font-size: 0.97rem; background: none; border: 1px solid var(--rule); color: var(--ink); padding: 6px 14px; border-radius: 999px; cursor: pointer; }
 
-    /* Sidebar */
-    .sidebar {
-      width: 240px;
-      background: linear-gradient(180deg, #004e92, #000428);
-      color: white;
-      height: 100vh;
-      position: fixed;
-      left: 0;
-      top: 0;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      transform: translateX(0);
-      transition: transform 0.3s ease;
-      z-index: 1000;
-    }
+    /* About */
+    .about { border-top: 0; padding-top: clamp(40px, 7vw, 92px); }
+    .name { font-size: clamp(2.8rem, 6.5vw, 5.4rem); line-height: 1; letter-spacing: -0.02em; font-variation-settings: 'opsz' 72; margin-bottom: clamp(28px, 4vw, 48px); }
+    .about .head { align-items: start; }
+    .about .head h2 { font-family: var(--sans); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mark); padding-top: 0.5em; }
+    .brand { transition: opacity .3s; }
+    .top:not(.past-name) .brand { opacity: 0; pointer-events: none; }
 
-    .sidebar h1 {
-      font-size: 1.4rem;
-      margin: 0 0 10px;
+    /* Hero */
+    .hero { padding: clamp(56px, 8vw, 104px) 0; border-top: 1px solid var(--rule); }
+    .hero .wrap { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(32px, 5vw, 76px); align-items: start; }
+    .hero .tagline {
+      font-size: clamp(2.5rem, 5.3vw, 4.55rem);
+      line-height: 1.03;
+      letter-spacing: -0.018em;
+      font-variation-settings: 'opsz' 72;
+      max-width: 13ch;
+      margin-top: 8px;
     }
+    .intro { margin-top: clamp(22px, 3vw, 34px); font-size: clamp(1.05rem, 1.5vw, 1.18rem); color: var(--ink-soft); max-width: 40ch; }
+    .cta { display: flex; flex-wrap: wrap; gap: 10px 22px; align-items: center; margin-top: 30px; }
+    .pill { display: inline-block; background: var(--ink); color: var(--page); text-decoration: none; font-weight: 500; padding: 12px 22px; border-radius: 999px; }
+    .pill:hover { background: var(--mark); color: #fff; }
+    .cta a:not(.pill) { font-weight: 500; }
 
-    .sidebar p {
-      font-size: 0.9rem;
-      margin-bottom: 15px;
-      opacity: 0.85;
-    }
+    /* The review: motion graphic */
+    .review { margin: 0; }
+    .sheet { background: var(--sheet); border: 1px solid var(--rule); border-radius: 10px; padding: clamp(20px, 3vw, 34px); box-shadow: 0 1px 0 var(--rule), 0 24px 48px -32px color-mix(in srgb, var(--ink) 40%, transparent); }
+    .sheet .lbl { font-size: 0.86rem; color: var(--ink-soft); margin: 0 0 4px; }
+    .sheet .ask { font-family: var(--serif); font-size: 1.1rem; font-style: italic; margin: 0 0 18px; color: var(--ink-soft); }
+    .answer { font-family: var(--serif); font-size: clamp(1.06rem, 1.5vw, 1.2rem); line-height: 1.5; }
+    .answer p { margin: 0 0 8px; display: grid; grid-template-columns: minmax(0, 1fr) 5.6em; gap: 14px; align-items: start; }
+    .answer .tag { justify-self: end; margin-top: 0.3em; }
+    .answer p:last-child { margin-bottom: 0; }
+    .s { background-image: linear-gradient(var(--wash), var(--wash)); background-repeat: no-repeat; background-size: 0% 100%; transition: background-size .55s cubic-bezier(.4,0,.2,1); -webkit-box-decoration-break: clone; box-decoration-break: clone; padding: 1px 0; }
+    .s.read { background-size: 100% 100%; }
+    .s.done { background-size: 100% 100%; background-image: linear-gradient(transparent, transparent); transition: background-image .4s; }
+    .err { background-image: linear-gradient(var(--mark), var(--mark)); background-repeat: no-repeat; background-position: 0 100%; background-size: 0% 2px; transition: background-size .5s cubic-bezier(.4,0,.2,1); }
+    .err.on { background-size: 100% 2px; }
+    .tag { display: inline-block; white-space: nowrap; font-family: var(--sans); font-size: 0.74rem; font-weight: 600; line-height: 1; color: #fff; background: var(--mark); border-radius: 999px; padding: 4px 8px 5px; vertical-align: 0.18em; opacity: 0; transform: translateY(4px); transition: opacity .3s, transform .3s; }
+    .tag.on { opacity: 1; transform: none; }
+    .rubric { list-style: none; margin: 22px 0 0; padding: 0; border-top: 1px solid var(--rule); font-size: 0.95rem; }
+    .rubric li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px; align-items: baseline; padding: 9px 0; border-bottom: 1px solid var(--rule); }
+    .rubric .res { color: var(--ink-soft); font-size: 0.88rem; white-space: nowrap; min-width: 9.5em; text-align: right; }
+    .rubric .res::before { content: "Pending"; opacity: 0.55; }
+    .rubric li.met .res::before { content: "Met"; opacity: 1; color: var(--ink); }
+    .rubric li.miss .res::before { content: "Missed: " attr(data-type); opacity: 1; color: var(--mark); font-weight: 600; }
+    .rubric li.met, .rubric li.miss { animation: settle .45s ease; }
+    @keyframes settle { from { background: var(--wash); } to { background: transparent; } }
+    .score { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 16px; font-size: 0.95rem; }
+    .bars { display: flex; gap: 4px; }
+    .bars i { width: 26px; height: 6px; border-radius: 3px; background: var(--rule); transition: background .3s; }
+    .bars i.met { background: var(--ink); }
+    .bars i.miss { background: var(--mark); }
+    .score b { font-weight: 600; }
+    .review figcaption { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; margin-top: 12px; color: var(--ink-soft); font-size: 0.9rem; }
+    .replay { font: inherit; font-size: 0.9rem; color: var(--ink); background: none; border: 0; padding: 0; text-decoration: underline; text-decoration-color: var(--mark); text-underline-offset: 0.22em; cursor: pointer; white-space: nowrap; }
 
-    .socials {
-      display: flex;
-      gap: 15px;
-      font-size: 1.2rem;
-      margin-bottom: 25px;
-    }
+    /* Sections */
+    .sec { padding: clamp(64px, 9vw, 120px) 0; border-top: 1px solid var(--rule); }
+    .head { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: clamp(20px, 4vw, 56px); margin-bottom: clamp(32px, 5vw, 60px); align-items: end; }
+    .head h2 { font-size: clamp(2rem, 4vw, 3.1rem); line-height: 1.05; letter-spacing: -0.015em; font-variation-settings: 'opsz' 60; }
+    .head p { margin: 0; color: var(--ink-soft); max-width: 52ch; }
+    .about-text p + p { margin-top: 0.9em; }
+    .about-text p:first-child { font-family: var(--serif); font-size: 1.35rem; color: var(--ink); }
 
-    .socials a {
-      color: white;
-      transition: transform 0.3s ease, color 0.3s ease;
-    }
+    /* Work entries */
+    .entry { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 18px clamp(20px, 4vw, 56px); padding: clamp(30px, 4vw, 48px) 0; border-top: 1px solid var(--rule); }
+    .entry:first-of-type { border-top: 0; padding-top: 0; }
+    .entry h3 { font-size: clamp(1.45rem, 2.3vw, 1.85rem); line-height: 1.15; letter-spacing: -0.01em; font-variation-settings: 'opsz' 36; }
+    .entry .when { color: var(--ink-soft); font-size: 0.95rem; margin-top: 8px; }
+    .entry .body { max-width: 66ch; }
+    .entry .body > p:first-child { font-size: 1.12rem; }
+    .entry ul { margin: 0 0 16px; padding-left: 1.1em; }
+    .entry li { margin-bottom: 6px; }
+    .entry li::marker { color: var(--mark); }
+    .stack { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 12px; }
+    .links { display: flex; flex-wrap: wrap; gap: 6px 22px; font-weight: 500; margin: 0; }
+    .media { grid-column: 2; margin: 10px 0 0; display: grid; gap: 14px; }
+    .media.two { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); align-items: start; }
+    .media img, .media video { width: 100%; height: auto; border-radius: 6px; border: 1px solid var(--rule); background: var(--sheet); }
+    .media figure { margin: 0; }
+    .media figcaption { font-size: 0.88rem; color: var(--ink-soft); margin-top: 6px; }
+    .phone img { width: auto; max-height: 340px; }
 
-    .socials a:hover {
-      color: #ffb400;
-      transform: scale(1.2);
-    }
+    /* Task package schematic */
+    .flow { grid-column: 2; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; margin: 10px 0 0; padding: 0; list-style: none; counter-reset: none; }
+    .flow li { position: relative; padding: 16px 18px 18px; background: var(--sheet); border: 1px solid var(--rule); margin-left: -1px; }
+    .flow li:first-child { margin-left: 0; border-radius: 8px 0 0 8px; }
+    .flow li:last-child { border-radius: 0 8px 8px 0; }
+    .flow strong { display: block; font-family: var(--serif); font-weight: 500; font-size: 1.08rem; margin-bottom: 4px; }
+    .flow span { color: var(--ink-soft); font-size: 0.9rem; line-height: 1.45; display: block; }
+    .flow li + li::before { content: ""; position: absolute; left: -7px; top: 22px; width: 12px; height: 12px; background: var(--sheet); border-top: 1px solid var(--rule); border-right: 1px solid var(--rule); transform: rotate(45deg); }
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 10px 0;
-      display: flex;
-      align-items: center;
-      font-size: 1rem;
-      padding: 8px 10px;
-      border-radius: 6px;
-      transition: background 0.3s, transform 0.3s;
-    }
+    /* Other work index */
+    .index { width: 100%; border-collapse: collapse; margin-top: clamp(40px, 6vw, 72px); }
+    .index caption { text-align: left; font-family: var(--serif); font-size: 1.45rem; padding-bottom: 14px; }
+    .index th, .index td { text-align: left; vertical-align: baseline; padding: 14px 16px 14px 0; border-top: 1px solid var(--rule); }
+    .index th { font-weight: 600; width: 30%; }
+    .index td.yr { color: var(--ink-soft); white-space: nowrap; width: 9em; }
+    .index td.go { text-align: right; white-space: nowrap; padding-right: 0; width: 5em; }
+    .index tr:last-child th, .index tr:last-child td { border-bottom: 1px solid var(--rule); }
 
-    nav a i {
-      margin-right: 10px;
-    }
+    /* Experience */
+    .xp { list-style: none; margin: 0; padding: 0; }
+    .xp > li { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 10px clamp(20px, 4vw, 56px); padding: 26px 0; border-top: 1px solid var(--rule); }
+    .xp > li:last-child { border-bottom: 1px solid var(--rule); }
+    .xp time { color: var(--ink-soft); font-size: 0.97rem; font-variant-numeric: tabular-nums; }
+    .xp .now time { color: var(--mark); font-weight: 600; }
+    .xp h3 { font-size: 1.35rem; line-height: 1.2; font-variation-settings: 'opsz' 30; }
+    .xp .org { color: var(--ink-soft); margin: 3px 0 10px; }
+    .xp ul { margin: 0; padding-left: 1.1em; max-width: 68ch; }
+    .xp ul { list-style: disc; }
+    .xp ul li { margin-bottom: 6px; }
+    .xp ul li::marker { color: var(--mark); }
+    .xp .earlier { display: grid; gap: 4px; }
 
-    nav a:hover {
-      background: rgba(255, 255, 255, 0.15);
-      transform: translateX(5px);
-    }
+    /* Background */
+    .bg { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(24px, 4vw, 56px); }
+    .bg h3 { font-size: 1.3rem; margin-bottom: 12px; font-variation-settings: 'opsz' 30; }
+    .bg ul { list-style: none; margin: 0; padding: 0; }
+    .bg li { padding: 12px 0; border-top: 1px solid var(--rule); }
+    .bg li strong { display: block; font-weight: 600; line-height: 1.4; }
+    .bg li span { display: block; color: var(--ink-soft); font-size: 0.95rem; margin-top: 2px; }
+    .skills { margin-top: clamp(40px, 6vw, 72px); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(20px, 3vw, 40px); }
+    .skills div { border-top: 2px solid var(--ink); padding-top: 12px; }
+    .skills h3 { font-size: 1.15rem; margin-bottom: 6px; font-variation-settings: 'opsz' 24; }
+    .skills p { color: var(--ink-soft); font-size: 0.97rem; margin: 0; }
 
-    nav a.active {
-      background: #145d8a;
-      font-weight: bold;
-    }
+    /* Contact */
+    .contact { background: var(--deep); color: var(--deep-text); border-top: 0; }
+    .contact h2 { color: var(--deep-text); }
+    .contact .head p { color: var(--deep-soft); }
+    .contact a { text-decoration-color: var(--deep-mark); }
+    .contact a:hover { color: var(--deep-mark); }
+    .contact .grid { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: clamp(28px, 4vw, 56px); }
+    .elsewhere { list-style: none; margin: 0; padding: 0; font-family: var(--serif); font-size: 1.3rem; }
+    .elsewhere li:first-child { padding-top: 0; border-top: 0; }
+    .elsewhere li { padding: 10px 0; border-top: 1px solid color-mix(in srgb, var(--deep-text) 18%, transparent); }
+    form { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    form label { display: grid; gap: 6px; font-size: 0.93rem; color: var(--deep-soft); }
+    form .full { grid-column: 1 / -1; }
+    input, textarea { font: inherit; color: var(--deep-text); background: transparent; border: 0; border-bottom: 1px solid color-mix(in srgb, var(--deep-text) 35%, transparent); padding: 8px 0 10px; border-radius: 0; width: 100%; }
+    textarea { resize: vertical; min-height: 110px; }
+    input:focus, textarea:focus { outline: none; border-bottom-color: var(--deep-mark); }
+    form button { justify-self: start; font: inherit; font-weight: 500; background: var(--deep-text); color: var(--deep); border: 0; border-radius: 999px; padding: 12px 24px; cursor: pointer; }
+    form button:hover { background: var(--deep-mark); }
+    form button:disabled { opacity: 0.6; cursor: progress; }
+    #form-status { grid-column: 1 / -1; margin: 0; min-height: 1.6em; color: var(--deep-text); }
+    footer { background: var(--deep); color: var(--deep-soft); font-size: 0.9rem; padding: 0 0 34px; }
+    footer .in { border-top: 1px solid color-mix(in srgb, var(--deep-text) 18%, transparent); padding-top: 22px; display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    footer p { margin: 0; }
 
-    /* Hamburger Button */
-    .hamburger {
-      position: fixed;
-      top: 15px;
-      left: 15px;
-      background: #007bff;
-      color: white;
-      border: none;
-      padding: 10px 12px;
-      font-size: 1.2rem;
-      border-radius: 6px;
-      cursor: pointer;
-      display: none;
-      z-index: 1100;
-      transition: transform 0.3s ease;
+    /* Responsive */
+    @media (max-width: 980px) {
+      .bg { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+      .bg > div:last-child { grid-column: 1 / -1; }
+      .skills { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+      .flow { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 10px; }
+      .flow li, .flow li:first-child, .flow li:last-child { margin-left: 0; border-radius: 8px; }
+      .flow li + li::before { display: none; }
     }
-
-    body.sidebar-open .hamburger {
-      transform: translateX(250px);
+    @media (max-width: 820px) {
+      .hero .wrap, .head, .entry, .xp > li, .contact .grid { grid-template-columns: minmax(0, 1fr); }
+      .media, .flow { grid-column: 1; }
+      .hero .tagline { max-width: 16ch; }
+      .menu { display: block; }
+      .top nav { display: none; position: absolute; left: 0; right: 0; top: 64px; flex-direction: column; gap: 0; background: var(--page); padding: 6px var(--gutter) 18px; border-bottom: 1px solid var(--rule); }
+      .top nav.open { display: flex; }
+      .top nav a { padding: 12px 0; font-size: 1.05rem; border-bottom: 1px solid var(--rule); }
+      .index th { width: auto; }
+      .index tr { display: grid; grid-template-columns: 1fr auto; border-top: 1px solid var(--rule); padding: 12px 0; }
+      .index th, .index td { border: 0; padding: 2px 0; width: auto !important; }
+      .index td.desc { grid-column: 1 / -1; order: 3; }
+      .index td.yr { order: 2; }
+      .index td.go { order: 4; text-align: left; }
+      .index tr:last-child th, .index tr:last-child td { border-bottom: 0; }
+      .index tr:last-child { border-bottom: 1px solid var(--rule); }
     }
-
-    /* Overlay for mobile menu */
-    .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 999;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.3s ease, visibility 0.3s ease;
+    @media (max-width: 560px) {
+      .media.two, .bg, .skills, form { grid-template-columns: minmax(0, 1fr); }
+      .flow { grid-template-columns: minmax(0, 1fr); }
+      .rubric li { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+      .rubric .res { text-align: left; min-width: 0; }
+      .answer p { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+      .answer .tag { justify-self: start; margin-top: 0; }
+      .review figcaption { flex-direction: column; gap: 6px; }
     }
-
-    .overlay.active {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    /* Responsive behavior for mobile */
-    @media (max-width: 768px) {
-      .sidebar {
-        transform: translateX(-100%);
-      }
-      .sidebar.active {
-        transform: translateX(0);
-      }
-      .hamburger {
-        display: block;
-      }
-      .main-content {
-        margin-left: 0 !important;
-      }
-      body.sidebar-open .main-content {
-        pointer-events: none;
-      }
-    }
-
-    /* Main content */
-    .main-content {
-      margin-left: 240px;
-      padding: 20px 40px;
-      max-width: 960px;
-      transition: margin-left 0.3s ease;
-    }
-
-    h2 {
-      color: #0c2d48;
-      margin-top: 40px;
-      font-size: 1.6rem;
-      border-bottom: 2px solid #0c2d48;
-      padding-bottom: 6px;
-    }
-
-    .card,
-    .project-card {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-      margin-bottom: 20px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .card:hover,
-    .project-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
-    }
-
-    .project-header {
-      margin: 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 1.1rem;
-      margin-bottom: 10px;
-    }
-
-    .project-header h4 {
-      margin: 0;
-    }
-
-    .project-btn {
-      background: linear-gradient(90deg, #0c2d48, #145d8a);
-      color: white;
-      padding: 6px 14px;
-      font-size: 0.85rem;
-      text-decoration: none;
-      border-radius: 20px;
-      transition: all 0.3s ease;
-      white-space: nowrap;
-    }
-
-    .project-btn:hover {
-      background: linear-gradient(90deg, #145d8a, #0c2d48);
-      transform: scale(1.05);
-    }
-
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-    }
-
-    /* Contact Section Styling */
-    .contact-container {
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
-    }
-    
-    .contact-info .socials {
-      justify-content: flex-start;
-      font-size: 1.5rem;
-      margin-bottom: 0; /* Removing extra margin */
-    }
-    
-    .contact-info .socials a {
-      color: #333; /* Darker color to be visible on white background */
-    }
-    
-    .contact-info .socials a:hover {
-      color: #007bff; /* Use a primary color for hover */
-    }
-
-    #contact-form {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-    }
-
-    #contact-form input,
-    #contact-form textarea {
-      font-family: 'Roboto', sans-serif;
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 15px;
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      background-color: #f9f9f9;
-      box-sizing: border-box;
-      transition: border-color 0.3s;
-    }
-
-    #contact-form input:focus,
-    #contact-form textarea:focus {
-      outline: none;
-      border-color: #007bff;
-    }
-
-    #contact-form button[type="submit"] {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(90deg, #007bff, #0056b3);
-      color: white;
-      padding: 12px 20px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 1rem;
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
-
-    #contact-form button[type="submit"]:hover {
-      background: linear-gradient(90deg, #0056b3, #007bff);
-      transform: translateY(-2px);
-    }
-
-    #form-status {
-      text-align: center;
-      margin-top: 15px;
-      font-weight: 600;
-    }
-
-    footer {
-      background: #0c2d48;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      margin-top: 40px;
-      border-radius: 8px;
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; animation: none !important; }
     }
   </style>
 </head>
 
 <body>
+  <a class="skip" href="#main">Skip to content</a>
 
-  <button class="hamburger"><i class="fas fa-bars"></i></button>
-
-  <div class="overlay"></div>
-
-  <div class="sidebar">
-    <h1>Rohan Singh</h1>
-    <p>Strategy | Product | Data | AI </p>
-    <p>Clinical Engg. | Pharma | MedTech | </p>
-    <div class="socials">
-      <a href="mailto:rohans.dmvt@gmail.com"><i class="fas fa-envelope"></i></a>
-      <a href="https://github.com/rxrohans" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="https://www.linkedin.com/in/rohan-singh-688a7a1b8" target="_blank"><i class="fab fa-linkedin"></i></a>
+  <header class="top" id="top">
+    <div class="wrap">
+      <a class="brand" href="#main">Rohan Singh</a>
+      <button class="menu" aria-expanded="false" aria-controls="nav">Menu</button>
+      <nav id="nav" aria-label="Sections">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#work">Work</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
-    <nav>
-      <a href="#about"><i class="fas fa-user"></i> About</a>
-      <a href="#skills"><i class="fas fa-tools"></i> Skills</a>
-      <a href="#work"><i class="fas fa-briefcase"></i> Work Exp</a>
-      <a href="#projects"><i class="fas fa-project-diagram"></i> Projects</a>
-      <a href="#certs"><i class="fas fa-certificate"></i> Certifications</a>
-      <a href="#contact"><i class="fas fa-paper-plane"></i> Connect with me</a>
-      <a href="https://bioe-cmcvellore.weebly.com/mtech-clinical-engineering.html" target="_blank"><i class="fas fa-stethoscope"></i> Clinical Engineering</a>
-    </nav>
-  </div>
+  </header>
 
-  <div class="main-content">
-    <section id="about">
-      <h2>👋 About Me</h2>
-      <p>A recent M.Tech graduate from IIT Madras with a background in Pharmacy, I am built for product and strategy roles that demand versatility. I thrive in dynamic environments where I can wear multiple hats, applying my interdisciplinary expertise to create impactful solutions at the intersection of Health and technology.</p>
-    </section>
-
-    <section id="skills">
-      <h2>🧰 Skills</h2>
-      <div class="card">
-        <h3>Technical</h3>
-        <ul>
-          <li>Python (Pandas, NumPy)</li>
-          <li>SQL (MySQL)</li>
-          <li>Power BI, Tableau, MATLAB</li>
-          <li>Android Studio, Streamlit</li>
-          <li>Fusion 360, Creo</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Soft</h3>
-        <ul>
-          <li>Strategic Thinking</li>
-          <li>Problem Solving</li>
-          <li>Cross-Functional Collaboration</li>
-          <li>Communication & Presentation</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="work">
-      <h2>💼 Work Experience</h2>
-      <div class="card">
-        <h3>AI Contributor | Outlier AI</h3>
-        <p>Jun 2025 – Present</p>
-        <p>Worked on RLHF, SFT, and prompt engineering across diverse AI use cases with structured reasoning focus.</p>
-      </div>
-      <div class="card">
-        <h3>Power BI Intern | Celebal Technologies</h3>
-        <p>Jun – Aug 2025</p>
-        <p>Built ETL pipelines and interactive dashboards with KPIs, drilldowns, and bookmarks, improving reporting efficiency.</p>
-      </div>
-      <div class="card">
-        <h3>Hospital Pharmacy Intern | RGSSH</h3>
-        <p>Jun – Jul 2022</p>
-        <p>Audited 10+ invalid prescriptions and optimized drug inventory, supporting compliance and audits.</p>
-      </div>
-    </section>
-
-    <section id="projects">
-      <h2>🚀 Projects</h2>
-      <div class="project-category">
-        <h3>🧠 Academic Research</h3>
-        <div class="project-grid">
-          <article class="project-card">
-            <div class="project-header">
-              <h4>Vapour Responsive Thin Films</h4>
-              <a href="Assets/MTech.html" class="project-btn">View Project</a>
-            </div>
-            <p>4D smart material fabrication for vapour-sensing biomedical applications.</p>
-          </article>
-          <article class="project-card">
-            <div class="project-header">
-              <h4>Engineering Problems in Hospitals</h4>
-              <a href="eph.html" class="project-btn">View Project</a>
-            </div>
-            <p>Identified 30+ unmet clinical needs; proposed ECG solution using design-thinking frameworks.</p>
-          </article>
-          <article class="project-card">
-            <div class="project-header">
-              <h4>Medical Device Innovation Project</h4>
-            </div>
-            <p>Designed a neurorehabilitation device launch strategy: business model, GTM, regulatory, financial analysis.</p>
-          </article>
-        </div>
-      </div>
-      <div class="project-category">
-        <h3>💻 Technical</h3>
-        <div class="project-grid">
-          <article class="project-card">
-            <div class="project-header">
-              <h4>Low Back Pain App</h4>
-              <a href="Assets/app_project.html" class="project-btn">View Project</a>
-            </div>
-            <p>Android-based tracker deployed in a CMC Vellore pilot study.</p>
-          </article>
-          <article class="project-card">
-            <div class="project-header">
-              <h4>AR Distance Measuring App</h4>
-            </div>
-            <p>Unity + ARCore tool for clinical measurements from live camera feed.</p>
-          </article>
-        </div>
-      </div>
-      <div class="project-category">
-        <h3>🌍 Personal</h3>
-        <div class="project-grid">
-          <article class="project-card">
-            <div class="project-header">
-              <h4>DSO Graph WebApp</h4>
-              <a href="Assets/dso_graph_webapp.html" class="project-btn">View Project</a>
-            </div>
-            <p>Streamlit webapp for visualizing oscilloscope data from text files.</p>
-          </article>
-          <article class="project-card">
-            <div class="project-header">
-              <h4>Device Lifecycle & Risk Management</h4>
-              <a href="Assets/healthcare_analytics_project.html" class="project-btn">View Project</a>
-            </div>
-            <p>ISO 14971-compliant MVP dashboard for hospitals, enabling device risk tracking.</p>
-          </article>
-          <article class="project-card">
-            <div class="project-header">
-              <h4>EV Analytics & Strategy</h4>
-            </div>
-            <p>Designed ₹12.6 lakh crore financing plan for electric trucks with phased GTM strategy.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="certs">
-      <h2>📜 Certifications</h2>
-      <ul>
-        <li>BCG, Pfizer, Deloitte – Job Simulations (Forage)</li>
-        <li>Google Cloud Prompt Design</li>
-        <li>Google AI Essentials</li>
-        <li>Generative AI Mastermind (Outskill)</li>
-        <li>Python for Data Science – Coursera</li>
-      </ul>
-    </section>
-
-    <section id="contact">
-      <h2>👋 Connect With Me</h2>
-      <div class="card contact-container">
-        <div class="contact-info">
-          <p>Have a question or want to connect? Feel free to reach out!</p>
-          <div class="socials">
-            <a href="mailto:rohans.dmvt@gmail.com"><i class="fas fa-envelope"></i></a>
-            <a href="https://github.com/rxrohans" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/rohan-singh-688a7a1b8" target="_blank"><i class="fab fa-linkedin"></i></a>
+  <main id="main">
+    <section class="sec about" id="about">
+      <div class="wrap">
+        <h1 class="name">Rohan Singh</h1>
+        <div class="head">
+          <h2>About me</h2>
+          <div class="about-text">
+            <p>I work where clinical context meets AI systems.</p>
+            <p>My academics cover healthcare and its technology. A B.Pharm from DIPSAR gave me a foundation in pharmacy and regulation. An M.Tech in Clinical Engineering from IIT Madras, a programme run jointly with CMC Vellore and SCTIMST, put me inside real clinical settings. Along the way I did projects in product development, risk assessment, biomaterials and app development.</p>
+            <p>At Outlier, I'm part of the INQA program and work mostly on the quality side of frontier model research across coding, fintech and healthtech, supporting RLHF and SFT workflows. The common thread is judging correctness in high-stakes domains.</p>
+            <p>I'm passionate about MedTech product development and healthcare AI, where clinical grounding and AI fluency both matter.</p>
           </div>
         </div>
-        <form id="contact-form">
-          <input type="text" id="name" name="name" placeholder="Your Name" required>
-          <input type="email" id="email" name="email" placeholder="Your Email" required>
-          <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
-          <button type="submit">Send Message</button>
-          <p id="form-status"></p>
-        </form>
+        <div class="bg">
+          <div>
+            <h3>Education</h3>
+            <ul>
+              <li><strong>M.Tech, Clinical Engineering</strong><span>IIT Madras, run jointly with CMC Vellore and SCTIMST. 2023 to 2025, CGPA 8.38</span></li>
+              <li><strong>Bachelor of Pharmacy</strong><span>Delhi Institute of Pharmaceutical Sciences and Research. 2019 to 2023, CGPA 7.68</span></li>
+            </ul>
+          </div>
+          <div>
+            <h3>Registration and writing</h3>
+            <ul>
+              <li><strong>Registered Pharmacist</strong><span>Delhi Pharmacy Council, 2026</span></li>
+              <li><strong>Advances in piezoelectric biopolymer materials for high-performance biomedical sensing and actuation</strong><span>Publication</span></li>
+            </ul>
+          </div>
+          <div>
+            <h3>Courses and volunteering</h3>
+            <ul>
+              <li><strong>McKinsey Forward Program</strong><span>McKinsey and Company</span></li>
+              <li><strong>Python for Data Science, AI and Development</strong><span>IBM on Coursera</span></li>
+              <li><strong>Google AI Essentials</strong><span>Google</span></li>
+              <li><strong>Fabricate 2025, IIT Madras</strong><span>Logistics and speaker coordination</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="skills">
+          <div><h3>Evaluation</h3><p>Rubric design, failure analysis, LLM evaluation, SFT and RLHF workflows, golden answers</p></div>
+          <div><h3>Data</h3><p>Python (Pandas, NumPy, scikit-learn), SQL, Power BI, Excel modelling</p></div>
+          <div><h3>Building</h3><p>LangChain, FAISS, Streamlit, Docker, Kotlin, Git, Claude Code, Cursor</p></div>
+          <div><h3>Clinical and product</h3><p>Needs finding, requirements, user stories, Figma, ISO 14971</p></div>
+        </div>
       </div>
     </section>
 
-    <footer>
-      <p>© 2025 Rohan Singh | rohans.dmvt@gmail.com </p>
-    </footer>
-  </div>
+    <section class="hero">
+      <div class="wrap">
+        <div>
+          <h2 class="tagline">I test how AI handles healthcare work, and find where it goes wrong.</h2>
+          <p class="intro">Registered pharmacist with an M.Tech in Clinical Engineering from IIT Madras. I grade model answers against written rubrics, build evaluation tasks with known answers, and turn what clinicians tell me into specifications.</p>
+          <div class="cta">
+            <a class="pill" href="#contact">Contact me</a>
+            <a href="#work">See the work</a>
+          </div>
+        </div>
+
+        <figure class="review" id="review" aria-describedby="review-cap">
+          <div class="sheet">
+            <p class="lbl">Question</p>
+            <p class="ask">Which ICU infusion pumps are overdue for preventive maintenance?</p>
+            <p class="lbl">Model answer</p>
+            <div class="answer">
+              <p><span class="s" data-step="0"><span class="err" data-err="0">Three ICU pumps are overdue: IP-07, IP-12 and IP-19.</span></span> <span class="tag" data-tag="0">Factual</span></p>
+              <p><span class="s" data-step="1">IP-12 was last serviced on 2 March 2026 and the interval is 12 months, <span class="err" data-err="1">so it fell due in September.</span></span> <span class="tag" data-tag="1">Reasoning</span></p>
+              <p><span class="s" data-step="2"><span class="err" data-err="2">I confirmed this in the maintenance log and the asset register.</span></span> <span class="tag" data-tag="2">Tool use</span></p>
+              <p><span class="s" data-step="3">All three pumps are assigned to the ICU.</span></p>
+            </div>
+            <ol class="rubric" aria-label="Rubric">
+              <li data-r="0"><span>Lists all four overdue ICU pumps</span><span class="res" data-type="factual"></span></li>
+              <li data-r="1"><span>Applies the 12-month service interval</span><span class="res"></span></li>
+              <li data-r="2"><span>Works out each due date correctly</span><span class="res" data-type="reasoning"></span></li>
+              <li data-r="3"><span>Cites only the sources it opened</span><span class="res" data-type="tool use"></span></li>
+              <li data-r="4"><span>Keeps to pumps in the ICU</span><span class="res"></span></li>
+            </ol>
+            <div class="score" aria-live="polite">
+              <span class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+              <span><b id="met">0</b> of 5 criteria met</span>
+            </div>
+          </div>
+          <figcaption id="review-cap">
+            <span>A made-up example of how I review a model answer: each claim checked against the source data, each failure given a type.</span>
+            <button class="replay" type="button" id="replay">Replay</button>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="sec" id="experience">
+      <div class="wrap">
+        <div class="head">
+          <h2>Experience</h2>
+        </div>
+        <ol class="xp">
+          <li class="now">
+            <time>Jun 2025 to now</time>
+            <div>
+              <h3>AI Quality Assurance Contributor</h3>
+              <p class="org">Outlier (Scale AI), remote</p>
+              <ul>
+                <li>Reviewed model output on more than 300 tasks in finance, coding, STEM and healthtech, checking facts, reasoning and adherence to guidelines.</li>
+                <li>Classify failures by type (factual, reasoning, tool use) against atomic and process or outcome rubrics, and write criteria that other reviewers can apply the same way.</li>
+                <li>Wrote multi-step tasks for a simulated accounting firm with 12 connected business systems, where the answer means tracing a transaction across systems.</li>
+                <li>Squad Lead on a supervised fine-tuning project, May to Jun 2026. Onboarded, trained and mentored 18 contributors through live sessions and reviews. All 18 kept quality ratings of 4.5 or higher.</li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <time>Aug to Sep 2026</time>
+            <div>
+              <h3>Healthcare Benchmark Task Author</h3>
+              <p class="org">Caudal AI, freelance</p>
+              <ul>
+                <li>Wrote expert-level tasks that test whether AI models can do real hospital work, across pharmacy, clinical engineering, facility design, hospital operations and health information management.</li>
+                <li>Each task came with realistic input data, a spreadsheet reference answer built on live formulas, and a weighted rubric used to score model output.</li>
+                <li>Built Python tooling that generates the input data and checks that every stated figure can be recomputed from the files.</li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <time>Jun to Aug 2025</time>
+            <div>
+              <h3>Power BI Intern</h3>
+              <p class="org">Celebal Technologies, remote</p>
+              <ul><li>Built a product performance and sustainability dashboard for two industrial product lines, with profit-score and quality KPIs, drill-throughs and a mobile layout, during an 8-week program on DAX, ETL and data modelling.</li></ul>
+            </div>
+          </li>
+          <li>
+            <time>Aug to Nov 2024</time>
+            <div>
+              <h3>Clinical Intern</h3>
+              <p class="org">Sree Chitra Tirunal Institute for Medical Sciences and Technology, Thiruvananthapuram</p>
+              <ul>
+                <li>Semester of coursework, lab work and clinical rotations in medical device technology management.</li>
+                <li>ISO 14971 risk analysis for a glucometer, the unmet needs project, and lab work on gene delivery and wound healing.</li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <time>Jan to Jun 2024</time>
+            <div>
+              <h3>Clinical Engineering Intern</h3>
+              <p class="org">Christian Medical College, Vellore</p>
+              <ul>
+                <li>Observed primary and community health centres to see how devices hold up in low-resource settings.</li>
+                <li>Built the low back pain tracking app and volunteered at the Rehab Mela.</li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <time>Jun to Jul 2022</time>
+            <div>
+              <h3>Hospital Pharmacy Intern</h3>
+              <p class="org">Rajiv Gandhi Super Speciality Hospital, Delhi</p>
+              <ul><li>Dispensing, record keeping, adverse drug reaction reporting and patient counselling. Flagged more than 10 invalid prescriptions.</li></ul>
+            </div>
+          </li>
+          <li>
+            <time>2021 to 2023</time>
+            <div>
+              <h3>Earlier</h3>
+              <div class="earlier">
+                <p class="org">Youth Ambassador, Viral Fission, Nov 2021 to Jan 2023. Campus campaigns for brands including Spotify and Fastrack.</p>
+                <p class="org">Business Analyst, MedTourEasy, Mar 2021. Dashboards to track KPIs.</p>
+              </div>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="sec" id="work">
+      <div class="wrap">
+        <div class="head">
+          <h2>Work</h2>
+          <p>Clinical projects and things I built to test an idea. Most of it sits where hospital practice meets data or software.</p>
+        </div>
+
+        <article class="entry">
+          <div>
+            <h3>PayLens</h3>
+            <p class="when">Personal project, 2025</p>
+          </div>
+          <div class="body">
+            <p>An assistant that answers questions about Indian payment fees, from card and UPI charges to gateway pricing. It retrieves from a knowledge base of more than 150 fee-rule chunks and adds live search when the base has no answer.</p>
+            <ul>
+              <li>Wrote an evaluation harness that reruns 20 benchmark questions after every change and scores context coverage, faithfulness and relevancy.</li>
+              <li>Packaged with Docker and deployed on Hugging Face Spaces.</li>
+            </ul>
+            <p class="stack">Python, LangChain, FAISS, Sentence Transformers, Streamlit, Docker</p>
+            <p class="links"><a href="https://huggingface.co/spaces/Rxrohans/PayLens-Dev" target="_blank" rel="noopener">Open the live demo</a></p>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div>
+            <h3>Device lifecycle and risk platform</h3>
+            <p class="when">Personal project, Jan to Apr 2025</p>
+          </div>
+          <div class="body">
+            <p>A prototype for hospital biomedical teams. It scores risk across the device register and shows only what is overdue or due soon, so nobody has to scan the full list.</p>
+            <ul>
+              <li>Mapped four users: biomedical engineer, nurse supervisor, pharmacist and hospital administrator.</li>
+              <li>Wireframed their flows in Figma and built the Power BI dashboard on simulated data, based on workflows I saw at CMC Vellore and SCTIMST.</li>
+            </ul>
+            <p class="stack">Power BI, Excel, Figma</p>
+            <p class="links">
+              <a href="Assets/healthcare_analytics_project.html">Project notes</a>
+              <a href="https://github.com/Rxrohans/Healthcare_Analytics_Project" target="_blank" rel="noopener">Source on GitHub</a>
+            </p>
+          </div>
+          <div class="media two">
+            <figure>
+              <img src="Assets/Dashboard.png" width="856" height="480" alt="Power BI dashboard with device counts by location and status, an equipment table and technician workload" loading="lazy">
+              <figcaption>Maintenance dashboard, simulated data</figcaption>
+            </figure>
+            <figure>
+              <video controls preload="none" poster="Assets/mvp_poster.jpg" width="1280" height="669" aria-label="Walkthrough of the stakeholder prototype">
+                <source src="Assets/MVPinaction.mp4" type="video/mp4">
+              </video>
+              <figcaption>Prototype walkthrough, 1 min 35 s</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div>
+            <h3>Vapour-responsive chitosan films</h3>
+            <p class="when">M.Tech thesis, IIT Madras, Dec 2024 to May 2025</p>
+          </div>
+          <div class="body">
+            <p>Chitosan films that bend when exposed to water vapour, tested with and without a barium titanate filler, and a small switch that uses the bending to close a circuit.</p>
+            <ul>
+              <li>Cut fabrication effort by 70% over repeated rounds of process changes.</li>
+              <li>Built a sensor prototype on an ESP32 that streams readings in real time.</li>
+              <li>Presented as a poster at Fabricate 2025, IIT Madras.</li>
+            </ul>
+            <p class="stack">Solvent casting, materials testing, ESP32, Fusion 360</p>
+            <p class="links">
+              <a href="Assets/MTech.html">Project notes</a>
+              <a href="Assets/Rohan_Fabricate_Poster.pdf" target="_blank" rel="noopener">Poster (PDF)</a>
+            </p>
+          </div>
+          <div class="media two">
+            <figure>
+              <img src="Assets/Water_Vapour_response.jpg" width="932" height="720" alt="Grid of film strips bending in water vapour, one row per filler amount" loading="lazy">
+              <figcaption>Film response at four filler amounts</figcaption>
+            </figure>
+            <figure>
+              <video controls preload="none" poster="Assets/vapor_switch_poster.jpg" width="1280" height="720" aria-label="Vapour-driven switch lighting an LED">
+                <source src="Assets/vapor_switch_web.mp4" type="video/mp4">
+              </video>
+              <figcaption>The switch lighting an LED, 3x speed</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div>
+            <h3>Unmet needs in hospitals</h3>
+            <p class="when">Clinical internship, SCTIMST, Aug to Nov 2024</p>
+          </div>
+          <div class="body">
+            <p>I led a team of four through interviews and floor observation across hospital departments. We found and validated more than 30 unmet clinical needs, screened them with a weighted matrix, and wrote a technical specification for a wireless 12-lead ECG monitor.</p>
+            <p class="stack">Needs finding, stakeholder interviews, requirements writing</p>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div>
+            <h3>Low back pain tracking app</h3>
+            <p class="when">Clinical internship, CMC Vellore, Jan to Jun 2024</p>
+          </div>
+          <div class="body">
+            <p>An Android app where a person logs back pain in the morning, afternoon and evening, next to sleep, medication, work and activity, so the pattern can be reviewed later.</p>
+            <ul>
+              <li>Wrote the user stories and built it in Kotlin, with data sent to Google Sheets through Apps Script and kept offline in SQLite.</li>
+              <li>Installed it on 10 people's phones to test feasibility, bugs and performance.</li>
+            </ul>
+            <p class="stack">Kotlin, Android Studio, Google Apps Script, SQLite</p>
+            <p class="links">
+              <a href="Assets/app_project.html">Project notes</a>
+              <a href="https://github.com/Rxrohans/App-Project" target="_blank" rel="noopener">Source on GitHub</a>
+            </p>
+          </div>
+          <figure class="media phone">
+            <img src="UI_Screenshots/App_UI.png" width="204" height="370" alt="Daily survey screen with sleep rating, pain sliders and medication questions" loading="lazy">
+          </figure>
+        </article>
+
+        <table class="index">
+          <caption>Short term projects and lab work</caption>
+          <tbody>
+            <tr><th scope="row">EV operations analysis</th><td class="desc">154,000+ GPS and battery records from 1,200+ vehicles. Clustered five operating zones and flagged about 20% low-activity users.</td><td class="yr">2025</td><td class="go"></td></tr>
+            <tr><th scope="row">Glucometer risk analysis</th><td class="desc">Device characterisation and an ISO 14971 hazard analysis, with the Division of Regulatory Affairs, SCTIMST.</td><td class="yr">2024</td><td class="go"></td></tr>
+            <tr><th scope="row">Nanoplexes for gene delivery</th><td class="desc">Formulated polymer-based nanoplexes for intracellular gene delivery, Biosurface Technology Lab, SCTIMST.</td><td class="yr">2024</td><td class="go"></td></tr>
+            <tr><th scope="row">Wound-healing assay</th><td class="desc">In-vitro scratch assay on L929 cells to study the effect of ascorbic acid on wound closure and collagen.</td><td class="yr">2024</td><td class="go"></td></tr>
+            <tr><th scope="row">Oscilloscope plotting tool</th><td class="desc">Streamlit app that reads exported oscilloscope CSV files and plots voltage against time.</td><td class="yr">2024</td><td class="go"><a href="Assets/dso_graph_webapp.html">Notes</a></td></tr>
+            <tr><th scope="row">AR distance measurement</th><td class="desc">Unity and ARCore app that measures distance to an object from the live camera view. Virtual Reality Engineering course.</td><td class="yr">2024</td><td class="go"></td></tr>
+            <tr><th scope="row">Neurorehabilitation device launch plan</th><td class="desc">Business model, go-to-market, regulatory route and financials for a medical device. Medical Device Innovation course.</td><td class="yr">2024</td><td class="go"></td></tr>
+            <tr><th scope="row">Speech corpus annotation</th><td class="desc">Labelled 20,000+ audio files against written guidelines for Bhashini, National Language Translation Mission, IIT Madras.</td><td class="yr">2023</td><td class="go"></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="sec contact" id="contact">
+      <div class="wrap">
+        <div class="head">
+          <h2>Contact</h2>
+          <p>Open to roles in healthcare AI, evaluation and product. Email is the fastest way to reach me.</p>
+        </div>
+        <div class="grid">
+          <div>
+            <ul class="elsewhere">
+              <li><a href="mailto:rohans.dmvt@gmail.com">Email</a></li>
+              <li><a href="https://www.linkedin.com/in/rohan-singh-688a7a1b8" target="_blank" rel="noopener">LinkedIn</a></li>
+              <li><a href="https://github.com/Rxrohans" target="_blank" rel="noopener">GitHub</a></li>
+              <li><a href="https://huggingface.co/spaces/Rxrohans/PayLens-Dev" target="_blank" rel="noopener">Hugging Face</a></li>
+            </ul>
+          </div>
+          <form id="contact-form">
+            <label>Name <input type="text" name="name" autocomplete="name" required></label>
+            <label>Email <input type="email" name="email" autocomplete="email" required></label>
+            <label class="full">Message <textarea name="message" rows="4" required></textarea></label>
+            <button type="submit">Send message</button>
+            <p id="form-status" role="status"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap"><div class="in">
+      <p>New Delhi, India</p>
+    </div></div>
+  </footer>
 
   <script>
-    const sections = document.querySelectorAll("section");
-    const navLinks = document.querySelectorAll("nav a");
-    const hamburger = document.querySelector(".hamburger");
-    const sidebar = document.querySelector(".sidebar");
-    const overlay = document.querySelector(".overlay");
+    (function () {
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // Function to toggle the sidebar
-    const toggleSidebar = () => {
-      sidebar.classList.toggle("active");
-      overlay.classList.toggle("active");
-      document.body.classList.toggle("sidebar-open");
-    };
+      // Review sequence
+      var steps = [
+        { s: 0, err: 0, rubric: [[0, 'miss']] },
+        { s: 1, err: 1, rubric: [[1, 'met'], [2, 'miss']] },
+        { s: 2, err: 2, rubric: [[3, 'miss']] },
+        { s: 3, err: null, rubric: [[4, 'met']] }
+      ];
+      var fig = document.getElementById('review');
+      var q = function (sel) { return fig.querySelector(sel); };
+      var timers = [];
+      var bars = fig.querySelectorAll('.bars i');
+      var metEl = document.getElementById('met');
 
-    // Scroll spy
-    window.addEventListener("scroll", () => {
-      let current = "";
-      sections.forEach(section => {
-        if (section) {
-          const sectionTop = section.offsetTop - 70;
-          if (window.pageYOffset >= sectionTop) {
-            current = section.getAttribute("id");
+      function reset() {
+        timers.forEach(clearTimeout); timers = [];
+        fig.querySelectorAll('.s').forEach(function (e) { e.classList.remove('read', 'done'); });
+        fig.querySelectorAll('.err, .tag').forEach(function (e) { e.classList.remove('on'); });
+        fig.querySelectorAll('.rubric li').forEach(function (e) { e.classList.remove('met', 'miss'); });
+        bars.forEach(function (b) { b.className = ''; });
+        metEl.textContent = '0';
+      }
+      function resolve(r, state, count) {
+        q('.rubric li[data-r="' + r + '"]').classList.add(state);
+        bars[r].className = state;
+        if (state === 'met') metEl.textContent = String(count);
+      }
+      function finalState() {
+        reset();
+        var met = 0;
+        steps.forEach(function (st) {
+          q('.s[data-step="' + st.s + '"]').classList.add('read', 'done');
+          if (st.err !== null) { q('[data-err="' + st.err + '"]').classList.add('on'); q('[data-tag="' + st.err + '"]').classList.add('on'); }
+          st.rubric.forEach(function (r) { if (r[1] === 'met') met++; resolve(r[0], r[1], met); });
+        });
+      }
+      function play() {
+        reset();
+        var t = 500, met = 0, prev = null;
+        steps.forEach(function (st) {
+          var sEl = q('.s[data-step="' + st.s + '"]');
+          timers.push(setTimeout(function () { if (prev) prev.classList.add('done'); sEl.classList.add('read'); prev = sEl; }, t));
+          t += 700;
+          if (st.err !== null) {
+            timers.push(setTimeout(function () { q('[data-err="' + st.err + '"]').classList.add('on'); }, t));
+            timers.push(setTimeout(function () { q('[data-tag="' + st.err + '"]').classList.add('on'); }, t + 350));
+            t += 550;
           }
-        }
+          st.rubric.forEach(function (r) {
+            timers.push(setTimeout(function () { if (r[1] === 'met') met++; resolve(r[0], r[1], met); }, t));
+            t += 380;
+          });
+          t += 250;
+        });
+        timers.push(setTimeout(function () { if (prev) prev.classList.add('done'); }, t));
+      }
+
+      if (reduce) { finalState(); }
+      else {
+        var started = false;
+        var io = new IntersectionObserver(function (en) {
+          if (en[0].isIntersecting && !started) { started = true; play(); io.disconnect(); }
+        }, { threshold: 0.35 });
+        io.observe(fig);
+      }
+      document.getElementById('replay').addEventListener('click', function () { reduce ? finalState() : play(); });
+
+      // Header rule after scrolling
+      var top = document.getElementById('top');
+      var onScroll = function () { top.classList.toggle('scrolled', window.scrollY > 8); };
+      window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+      // Show the header name once the page name has scrolled away
+      new IntersectionObserver(function (en) {
+        top.classList.toggle('past-name', !en[0].isIntersecting);
+      }, { rootMargin: '-64px 0px 0px 0px' }).observe(document.querySelector('.name'));
+
+      // Mobile menu
+      var btn = document.querySelector('.menu'), nav = document.getElementById('nav');
+      btn.addEventListener('click', function () { var o = nav.classList.toggle('open'); btn.setAttribute('aria-expanded', o); });
+      nav.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { nav.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); }); });
+
+      // Current section
+      var links = nav.querySelectorAll('a');
+      var spy = new IntersectionObserver(function (en) {
+        en.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          links.forEach(function (a) { a.toggleAttribute('aria-current', a.getAttribute('href') === '#' + e.target.id); if (a.hasAttribute('aria-current')) a.setAttribute('aria-current', 'true'); });
+        });
+      }, { rootMargin: '-40% 0px -55% 0px' });
+      document.querySelectorAll('main .sec').forEach(function (s) { spy.observe(s); });
+
+      // Contact form
+      var form = document.getElementById('contact-form'), status = document.getElementById('form-status');
+      var URL_ = 'https://script.google.com/macros/s/AKfycbxDowmUKkq_6qqabvX3p5mZ-1AzL_LR2EmDybVNqWFZKzoU6ssHBNd7jA9ZU3nav6HL/exec';
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var b = form.querySelector('button'); b.disabled = true; status.textContent = 'Sending';
+        fetch(URL_, { method: 'POST', body: new FormData(form) })
+          .then(function (r) { if (!r.ok) throw 0; status.textContent = 'Message sent. I will reply by email.'; form.reset(); })
+          .catch(function () { status.textContent = 'The message did not send. Use the Email link instead.'; })
+          .finally(function () { b.disabled = false; });
       });
-      navLinks.forEach(a => {
-        a.classList.remove("active");
-        if (a.getAttribute("href").includes(current) && current) {
-          a.classList.add("active");
-        }
-      });
-    });
-
-    // Toggle sidebar on hamburger click
-    hamburger.addEventListener("click", toggleSidebar);
-
-    // Close sidebar when clicking on the overlay
-    overlay.addEventListener("click", toggleSidebar);
-
-    // Close sidebar when a nav link is clicked
-    navLinks.forEach(link => {
-      link.addEventListener("click", () => {
-        if (sidebar.classList.contains("active")) {
-          toggleSidebar();
-        }
-      });
-    });
-
-    // Contact Form Submission
-    const contactForm = document.getElementById('contact-form');
-    const formStatus = document.getElementById('form-status');
-    
-    // IMPORTANT: Replace this with your actual Google Apps Script Web App URL
-    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxDowmUKkq_6qqabvX3p5mZ-1AzL_LR2EmDybVNqWFZKzoU6ssHBNd7jA9ZU3nav6HL/exec';
-
-    contactForm.addEventListener('submit', e => {
-      e.preventDefault();
-      
-      formStatus.textContent = 'Sending...';
-      formStatus.style.color = '#333';
-      
-      const formData = new FormData(contactForm);
-      
-      fetch(GOOGLE_SCRIPT_URL, {
-        method: 'POST',
-        body: formData
-      })
-      .then(response => {
-        if (response.ok) {
-          formStatus.textContent = 'Message sent successfully!';
-          formStatus.style.color = 'green';
-          contactForm.reset();
-        } else {
-          throw new Error('Network response was not ok.');
-        }
-      })
-      .catch(error => {
-        console.error('Error!', error.message);
-        formStatus.textContent = 'Oops! Something went wrong.';
-        formStatus.style.color = 'red';
-      });
-    });
+    })();
   </script>
 </body>
 </html>

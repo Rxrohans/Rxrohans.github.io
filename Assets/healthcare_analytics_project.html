@@ -1,161 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Clinical Device Lifecycle & Risk Management Platform | Rohan Singh</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    /* Smooth scrolling and fade-in effect */
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      opacity: 0;
-      transition: opacity 1s ease-in;
-    }
-
-    body.fade-in {
-      opacity: 1;
-    }
-    /* style.css */
-
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #f9f9fb;
-  color: #333;
-  line-height: 1.6;
-}
-
-header {
-  text-align: center;
-  padding: 2rem 1rem;
-  background: #0056b3;
-  color: white;
-}
-
-header h1 {
-  margin: 0;
-  font-size: 2.5rem;
-}
-
-header p {
-  margin-top: 0.5rem;
-  font-size: 1.2rem;
-}
-
-section {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 0 1rem;
-}
-
-h2 {
-  color: #0056b3;
-  margin-top: 2rem;
-  font-size: 1.8rem;
-}
-
-ul {
-  padding-left: 1.5rem;
-}
-
-ul li {
-  margin-bottom: 0.5rem;
-}
-
-a.github-link, a.back-link {
-  display: inline-block;
-  margin-top: 1.5rem;
-  padding: 0.6rem 1.2rem;
-  background-color: #0077ff;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 8px;
-  transition: background 0.3s ease;
-}
-
-a.github-link:hover, a.back-link:hover {
-  background-color: #0056b3;
-}
-
-a.back-link {
-  background-color: #6c757d;
-  margin-left: 1rem;
-}
-
-a.back-link:hover {
-  background-color: #495057;
-}
-  
-  </style>
-  
-  <script>
-    // Fade-in on page load
-    window.addEventListener('DOMContentLoaded', () => {
-      document.body.classList.add('fade-in');
-    });
-  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Device lifecycle and risk platform | Rohan Singh</title>
+  <meta name="description" content="A prototype that scores risk across a hospital device register and shows biomedical teams only what is overdue or due soon.">
+  <meta name="theme-color" content="#231C3F">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23231C3F'/%3E%3Ccircle cx='32' cy='32' r='13' fill='none' stroke='%23E7A9BE' stroke-width='5'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="project.css">
 </head>
 <body>
-
-<header>
-  <h1>Clinical Device Lifecycle & Risk Management Platform</h1>
-  <p>Power BI Dashboard for Medical Equipment Monitoring</p>
-</header>
-
-<section>
-  <h2>Project Overview</h2>
-  <p>This project simulates a real-world hospital scenario for monitoring and managing medical equipment risks and maintenance. It was developed based on clinical workflows observed during academic exposure at CMC Vellore and SCTIMST.</p>
-
-  <h2>Problem Statement</h2>
-  <p>Manual logs and delayed preventive maintenance workflows create safety and compliance gaps in large Indian government hospitals.</p>
-
-  <h2>Objectives</h2>
-  <ul>
-    <li>Track lifecycle and performance of medical devices</li>
-    <li>Prioritize preventive maintenance</li>
-    <li>Automate ISO 14971 risk scoring logic</li>
-    <li>Deliver real-time insights via Power BI dashboards</li>
-  </ul>
-
-  <h2>Tools Used</h2>
-  <ul>
-    <li>Wireframes: Figma</li>
-    <li>Data Simulation: Excel</li>
-    <li>Dashboarding: Power BI</li>
-    <li>Planning & Documentation: PowerPoint</li>
-  </ul>
-
-  <h2>Stakeholders</h2>
-  <ul>
-    <li>Biomedical Engineer (Operator)</li>
-    <li>Nurse Supervisor (Reporter)</li>
-    <li>Pharmacist (Cold Chain Owner)</li>
-    <li>Hospital Admin (Compliance & Strategy)</li>
-  </ul>
-
-  <h2>Key Dashboard Visuals</h2>
-  <ul>
-    <li>KPI Cards (Overdue, Due Soon, Operational)</li>
-    <li>Department-wise Equipment Status</li>
-    <li>Technician Workload</li>
-  </ul>
-  
-  <h2>Dashboard preview</h2>
-  <img src="https://rxrohans.github.io/Assets/Dashboard.png" alt="Dashboard Preview" style="width:100%; height:auto; border: 1px solid #ddd; border-radius: 8px;">
-
-  <h2>MVP in action</h2>
-  <video width="100%" controls style="border-radius: 8px; background: #000;">
-    <source src="https://rxrohans.github.io/Assets/MVPinaction.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  
-  <p><a class="github-link" href="https://github.com/Rxrohans/Healthcare_Analytics_Project" target="_blank">🔗 View on GitHub</a></p>
-  <a class="back-link" href="index.html">← Back to Portfolio</a>
-</section>
-
+  <header class="top">
+    <div class="wrap">
+      <a class="brand" href="../index.html">Rohan Singh</a>
+      <a class="back" href="../index.html#work">All work</a>
+    </div>
+  </header>
+  <main>
+    <div class="wrap">
+      <div class="title">
+        <h1>Device lifecycle and risk platform</h1>
+        <p class="lede">A prototype for hospital biomedical teams. It scores risk across the device register and shows only what is overdue or due soon.</p>
+      </div>
+      <div class="layout">
+        <dl class="facts">
+          <div><dt>Context</dt><dd>Personal project, based on workflows seen at CMC Vellore and SCTIMST</dd></div>
+          <div><dt>When</dt><dd>Jan to Apr 2025</dd></div>
+          <div><dt>Tools</dt><dd>Power BI, Excel, Figma, PowerPoint</dd></div>
+          <div><dt>Data</dt><dd>Simulated device and maintenance records</dd></div>
+          <div><dt>Links</dt><dd><a href="https://github.com/Rxrohans/Healthcare_Analytics_Project" target="_blank" rel="noopener">Source on GitHub</a></dd></div>
+        </dl>
+        <div class="body">
+          <section>
+            <h2>Problem</h2>
+            <p>In large government hospitals, device maintenance is often tracked in manual logs. Preventive maintenance slips, and the safety and compliance gaps only show up when someone reads the whole register.</p>
+          </section>
+          <section>
+            <h2>Aims</h2>
+            <ul>
+              <li>Track the lifecycle and status of every medical device.</li>
+              <li>Score risk automatically, following ISO 14971 logic, so preventive maintenance can be prioritised.</li>
+              <li>Show each team only the devices that need action.</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Who it is for</h2>
+            <ul class="people">
+              <li><strong>Biomedical engineer</strong><span>Carries out and records maintenance</span></li>
+              <li><strong>Nurse supervisor</strong><span>Reports faults from the ward</span></li>
+              <li><strong>Pharmacist</strong><span>Owns cold-chain equipment</span></li>
+              <li><strong>Hospital administrator</strong><span>Compliance and purchasing decisions</span></li>
+            </ul>
+          </section>
+          <section>
+            <h2>What it shows</h2>
+            <p>Counts of overdue, due-soon and operational devices; status by department; and each technician's workload. I wireframed the flows for all four users in Figma before building the dashboard.</p>
+            <figure class="media">
+              <img src="Dashboard.png" width="856" height="480" alt="Power BI dashboard with device counts by location and status, an equipment table and technician workload" loading="lazy">
+              <figcaption>Maintenance dashboard on simulated data</figcaption>
+            </figure>
+            <figure class="media">
+              <video controls preload="metadata" poster="mvp_poster.jpg" width="1280" height="669">
+                <source src="MVPinaction.mp4" type="video/mp4">
+              </video>
+              <figcaption>Prototype walkthrough across the four user views, 1 min 35 s</figcaption>
+            </figure>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="wrap">
+      <div class="next"><span>New Delhi, India</span><a href="../index.html#contact">Contact me</a></div>
+    </div>
+  </footer>
 </body>
 </html>

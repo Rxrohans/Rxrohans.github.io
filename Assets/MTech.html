@@ -1,107 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Vapour Responsive Thin Films | MTech Project | Rohan Singh</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f9f9f9;
-      color: #333;
-    }
-    header {
-      background: #0c2d48;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-    section {
-      padding: 30px;
-      max-width: 900px;
-      margin: auto;
-    }
-    h1, h2 {
-      color: #0c2d48;
-    }
-    p, li {
-      line-height: 1.6;
-    }
-    ul {
-      list-style-type: disc;
-      margin-left: 20px;
-    }
-    img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 10px;
-      margin: 10px 0;
-    }
-    iframe {
-      width: 100%;
-      height: 600px;
-      border: none;
-      margin-top: 20px;
-    }
-    .back-link {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 10px 15px;
-      background: #0c2d48;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vapour-responsive chitosan films | Rohan Singh</title>
+  <meta name="description" content="M.Tech thesis at IIT Madras on chitosan films that change shape in water vapour, and a vapour-driven switch.">
+  <meta name="theme-color" content="#231C3F">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23231C3F'/%3E%3Ccircle cx='32' cy='32' r='13' fill='none' stroke='%23E7A9BE' stroke-width='5'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="project.css">
 </head>
 <body>
-
-<header>
-  <h1>Vapour Responsive Thin Films</h1>
-  <p>MTech Project at IIT Madras</p>
-  <p>Dec 2024 - Present</p>
-</header>
-
-<section>
-  <h2>Problem Statement</h2>
-  <p>
-    Conventional thin films used in biomedical applications are static and lack dynamic responsiveness. This project aims to develop smart, vapour responsive thin films using biocompatible, chitosan-based hydrogels to create soft robotic elements with programmable behavior.
-  </p>
-
-  <h2>Objectives</h2>
-  <ul>
-    <li>Fabricate chitosan-based thin films via solvent casting</li>
-    <li>Characterize the dynamic response of the films to vapour and nanofiller.</li>
-    <li> To exploit shape morphing behaviour in Chitosan (CHT) based thin films and develop a water vapor responsive smart switch</li>
-  </ul>
-
-  <h2>Results & Discussions</h2>
-  <p>
-   1. BaTiO3 induces significant shift in chitosan film shape-morphing behaviour in response to water vapour.
-   2. CHT films holds great potential as a sustainable smart material fire alarm systems and humidity sensors.
-  </p>
-
-
-  <h2>Observations</h2>
-  <img src="https://rxrohans.github.io/Assets/Water_Vapour_response.jpg" alt="Vapour Responsive Thin Films - Screenshot 1">
-  <!--img src="assets/4d_printing_ss2.jpg" alt="Vapour Responsive Thin Films - Screenshot 2"-->
-
-  <h2>Project Poster Demonstration</h2>
-  <!-- Embedded PDF Viewer for Poster; replace URL with your actual file path -->
-  <iframe src="https://rxrohans.github.io/Assets/Rohan_Fabricate_Poster.pdf"></iframe>
-
-  <h2>Demonstration Video</h2>
-  <!-- Replace the src URL with your actual YouTube embed link or local video source -->
-  <video width="100%" controls>
-  <source src="https://rxrohans.github.io/Assets/Vapor_based_smart_switch.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-
-  
-  <a class="back-link" href="../index.html">← Back</a>
-</section>
-
+  <header class="top">
+    <div class="wrap">
+      <a class="brand" href="../index.html">Rohan Singh</a>
+      <a class="back" href="../index.html#work">All work</a>
+    </div>
+  </header>
+  <main>
+    <div class="wrap">
+      <div class="title">
+        <h1>Vapour-responsive chitosan films</h1>
+        <p class="lede">Thin films that bend when water vapour reaches them, and a small switch that turns that bending into a closed circuit.</p>
+      </div>
+      <div class="layout">
+        <dl class="facts">
+          <div><dt>Context</dt><dd>M.Tech thesis, IIT Madras</dd></div>
+          <div><dt>When</dt><dd>Dec 2024 to May 2025</dd></div>
+          <div><dt>Methods</dt><dd>Solvent casting, nanofiller loading, vapour response testing</dd></div>
+          <div><dt>Tools</dt><dd>ESP32, Fusion 360</dd></div>
+          <div><dt>Shown at</dt><dd>Poster, Fabricate 2025, IIT Madras</dd></div>
+          <div><dt>Links</dt><dd><a href="Rohan_Fabricate_Poster.pdf" target="_blank" rel="noopener">Poster (PDF)</a></dd></div>
+        </dl>
+        <div class="body">
+          <section>
+            <h2>Problem</h2>
+            <p>Most thin films used in biomedical devices are static. They do not respond to their surroundings. This project set out to make chitosan-based films that change shape in a controlled way when exposed to water vapour, as a starting point for soft actuators and sensors.</p>
+          </section>
+          <section>
+            <h2>What I did</h2>
+            <ul>
+              <li>Fabricated chitosan films by solvent casting, with and without a barium titanate (BaTiO<sub>3</sub>) filler at different loadings.</li>
+              <li>Measured how each film bent and recovered under water vapour.</li>
+              <li>Reduced fabrication effort by 70% over repeated rounds of process changes.</li>
+              <li>Built a vapour-driven switch that lights an LED, and a sensor prototype on an ESP32 that streams readings in real time.</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Results</h2>
+            <ul>
+              <li>Adding BaTiO<sub>3</sub> clearly changed how the films bent in response to water vapour.</li>
+              <li>The films are a promising low-cost material for humidity sensors and vapour-triggered alarms.</li>
+            </ul>
+            <figure class="media">
+              <img src="Water_Vapour_response.jpg" width="932" height="720" alt="Grid of film strips bending in water vapour, one row per filler amount" loading="lazy">
+              <figcaption>Film response at 0, 0.1, 0.3 and 0.5 filler loading</figcaption>
+            </figure>
+            <figure class="media">
+              <video controls preload="metadata" poster="vapor_switch_poster.jpg" width="1280" height="720">
+                <source src="vapor_switch_web.mp4" type="video/mp4">
+              </video>
+              <figcaption>The switch closing a circuit and lighting an LED, 3x speed</figcaption>
+            </figure>
+          </section>
+          <section>
+            <h2>Poster</h2>
+            <figure class="media">
+              <iframe src="Rohan_Fabricate_Poster.pdf" title="Fabricate 2025 poster" loading="lazy"></iframe>
+              <figcaption>If the poster does not show, <a href="Rohan_Fabricate_Poster.pdf" target="_blank" rel="noopener">open the PDF</a>.</figcaption>
+            </figure>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="wrap">
+      <div class="next"><span>New Delhi, India</span><a href="../index.html#contact">Contact me</a></div>
+    </div>
+  </footer>
 </body>
 </html>
