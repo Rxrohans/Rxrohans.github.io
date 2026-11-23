@@ -491,6 +491,37 @@
 
         <article class="entry">
           <div>
+            <h3>ClinSafeBench</h3>
+            <p class="when">Personal project, Oct 2026 to now</p>
+          </div>
+          <div class="body">
+            <p>A benchmark that tests language models on hospital work where a confident wrong answer harms a patient: renal dose checks and drug-label conflicts, equipment maintenance planning, and medical-device risk and regulatory classification under ISO 14971, EU MDR and India MDR.</p>
+            <ul>
+              <li>Designed 16 tasks whose answer keys are computed by code from the inputs. Verified each one against FDA labels, EU MDR Annex VIII, MDCG guidance and CDSCO lists.</li>
+              <li>Grading on Inspect AI: code checks every number, date and device class, an LLM judge from a different model family scores the reasoning, and unsafe advice or fabrication fails the task outright.</li>
+              <li>Evaluated four models, from Claude Sonnet 5.5 to a local Llama 3.1 8B. Qwen 3.8 recommended an unsafe dabigatran dose, and gpt-oss-120b got half of the EU device classes wrong.</li>
+              <li>Checked the judge against my own blind labels and a five-model jury.</li>
+            </ul>
+            <p class="stack">Python, Inspect AI, Pydantic, FHIR R4, JSON Schema, GitHub Actions</p>
+            <p class="links">
+              <a href="https://rxrohans.github.io/clinsafebench/" target="_blank" rel="noopener">Open the benchmark</a>
+              <a href="https://github.com/Rxrohans/clinsafebench" target="_blank" rel="noopener">Source on GitHub</a>
+            </p>
+          </div>
+          <div class="media two">
+            <figure>
+              <img src="Assets/clinsafebench_results.png" width="760" height="360" alt="Bar chart of rubric scores with confidence intervals: Claude Sonnet 5.5 98%, Qwen 3.8 27B 77%, gpt-oss-120b 72%, Llama 3.1 8B 20%" loading="lazy">
+              <figcaption>Results across 16 tasks</figcaption>
+            </figure>
+            <figure>
+              <img src="Assets/clinsafebench_task.png" width="760" height="500" alt="Task view for a dabigatran and dronedarone case, showing the scenario, data, correct answer and traps" loading="lazy">
+              <figcaption>A pharmacy task with its answer key and traps</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div>
             <h3>PayLens</h3>
             <p class="when">Personal project, 2025</p>
           </div>
